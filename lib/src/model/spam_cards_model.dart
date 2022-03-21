@@ -4,23 +4,23 @@ class SpamCardsModel {
   String? category;
   String? frequency;
   String? sinceYear;
-  String provider;
-  String token;
-  String? refreshToken;
   int? totalEmails;
   double? openRate;
   double? securityScore;
   double? sensitivityScore;
   double? hackingScore;
   String? senderEmail;
+  String provider;
+  Function? onUnsubscribe;
+  Function? onKeep;
   late int senderId;
 
   SpamCardsModel({
+    required this.provider,
     this.logoUrl,
     this.category,
     required this.companyName,
     required this.frequency,
-    required this.provider,
     this.sinceYear,
     this.totalEmails,
     required this.openRate,
@@ -28,9 +28,9 @@ class SpamCardsModel {
     this.sensitivityScore,
     this.hackingScore,
     this.senderEmail,
+    this.onUnsubscribe,
+    this.onKeep,
     required this.senderId,
-    required this.token,
-    this.refreshToken
   });
 
   @override
@@ -66,14 +66,14 @@ class SpamCardsModel {
       senderEmail.hashCode ^
       senderId.hashCode;
 
-  SpamCardsModel.fromMessageList({
-    required List messages,
-    required String dataProvider,
-    required String token,
-    String? refreshToken,
-    required String calculatedFrequency,
-    required double calculatedOpenRate,
-  })  : logoUrl = messages[0].sender?.company?.logo,
+  SpamCardsModel.fromMessageList(
+      {required List messages,
+      required String calculatedFrequency,
+      required double calculatedOpenRate,
+      required this.provider,
+      this.onKeep,
+      this.onUnsubscribe})
+      : logoUrl = messages[0].sender?.company?.logo,
         category = messages[0].sender?.category,
         companyName = messages[0].sender?.name,
         frequency = calculatedFrequency,
@@ -84,10 +84,7 @@ class SpamCardsModel {
         senderId = messages[0].sender.senderId,
         senderEmail = messages[0].sender?.email,
         totalEmails = messages.length,
-        sinceYear = messages[0].sender?.emailSince?.year.toString(),
-        provider = dataProvider,
-        token = token,
-        refreshToken = refreshToken;
+        sinceYear = messages[0].sender?.emailSince?.year.toString();
 }
 
 enum SpamCardsFrequency { daily, weekly, monthly }

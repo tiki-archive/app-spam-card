@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:spam_cards/src/ui/spam_cards_view_header.dart';
 
-import '../../decision_spam_service.dart';
-import '../../model/decision_card_spam_model.dart';
-import '../spam/decision_spam_view_data_info_row.dart';
-import '../spam/decision_spam_view_separator.dart';
-import '../spam_cards_model.dart';
+import '../model/spam_cards_model.dart';
 import '../spam_cards_service.dart';
-import 'decision_spam_view_company.dart';
-import 'decision_spam_view_frequency.dart';
-import 'decision_spam_view_header.dart';
-import 'decision_spam_view_security.dart';
+import 'spam_cards_view_company.dart';
+import 'spam_cards_view_data_info_row.dart';
+import 'spam_cards_view_frequency.dart';
+import 'spam_cards_view_security.dart';
+import 'spam_cards_view_separator.dart';
 
 class SpamCardsLayoutContent extends StatelessWidget {
   final GlobalKey shareKey;

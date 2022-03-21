@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../decision_style.dart';
+import '../spam_cards_style.dart';
 
 class SpamCardsViewSeparator extends StatelessWidget {
-  final DecisionSdkStyle style;
+  final SpamCardsStyle style;
   const SpamCardsViewSeparator({Key? key, required this.style})
       : super(key: key);
 

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../decision_style.dart';
+import '../spam_cards_style.dart';
 
 class SpamCardsViewCompany extends StatelessWidget {
   final String? logo;
   final String? name;
   final String? email;
-  final DecisionSdkStyle style;
+  final SpamCardsStyle style;
 
   const SpamCardsViewCompany(
       {Key? key, this.logo, this.name, this.email, required this.style})

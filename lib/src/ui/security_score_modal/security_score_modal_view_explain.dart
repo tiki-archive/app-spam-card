@@ -3,10 +3,11 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-import 'package:decision_sdk/src/decision_style.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../spam_cards_style.dart';
 
 class SecurityScoreModalViewExplain extends StatelessWidget {
   static const String _textHacking =
@@ -18,7 +19,7 @@ class SecurityScoreModalViewExplain extends StatelessWidget {
   static const String _linkSensitivity = 'bigpicture.io';
   static const String _linkHacking = 'haveibeenpwned.com';
 
-  final DecisionSdkStyle style;
+  final SpamCardsStyle style;
 
   const SecurityScoreModalViewExplain({Key? key, required this.style})
       : super(key: key);

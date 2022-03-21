@@ -2,8 +2,9 @@
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
-import 'package:decision_sdk/src/decision_style.dart';
 import 'package:flutter/material.dart';
+
+import '../../spam_cards_style.dart';
 
 class SecurityScoreModalViewDesc extends StatelessWidget {
   static const String _empty =
@@ -13,7 +14,7 @@ class SecurityScoreModalViewDesc extends StatelessWidget {
   static const String _text2 = 'Security score.';
 
   final bool noScore;
-  final DecisionSdkStyle style;
+  final SpamCardsStyle style;
 
   const SecurityScoreModalViewDesc(
       {Key? key, this.noScore = false, required this.style})

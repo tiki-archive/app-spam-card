@@ -1,15 +1,15 @@
-import 'package:decision_sdk/src/decision_service.dart';
-import 'package:decision_sdk/src/decision_style.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:spam_cards/src/spam_cards_service.dart';
 
-import '../../../../../spam_cards/lib/src/security_score_modal_model.dart';
+import '../model/security_score_modal_model.dart';
+import '../spam_cards_style.dart';
 
 class SpamCardsViewSecurity extends StatelessWidget {
   final double? security;
   final double? sensitivity;
   final double? hacking;
-  final DecisionSdkStyle style;
+  final SpamCardsStyle style;
 
   const SpamCardsViewSecurity(
       {Key? key,
@@ -22,7 +22,7 @@ class SpamCardsViewSecurity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DecisionSdkService service = Provider.of<DecisionSdkService>(context);
+    SpamCardsService service = Provider.of<SpamCardsService>(context);
     return Column(children: [
       Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -59,7 +59,7 @@ class SpamCardsViewSecurity extends StatelessWidget {
     ]);
   }
 
-  List<Widget> _getStars(DecisionSdkService service) {
+  List<Widget> _getStars(SpamCardsService service) {
     var color = _getColor();
     var starRate = security ?? 0;
     var stars = <Widget>[];
@@ -133,7 +133,7 @@ class SpamCardsViewSecurity extends StatelessWidget {
     }
   }
 
-  _getInfoIcon(BuildContext context, DecisionSdkService service) {
+  _getInfoIcon(BuildContext context, SpamCardsService service) {
     return WidgetSpan(
         child: Padding(
             padding: EdgeInsets.only(

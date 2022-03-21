@@ -1,23 +1,27 @@
 import 'package:decision_sdk/decision.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:logging/logging.dart';
+import 'package:spam_cards/src/spam_cards_presenter.dart';
 import 'package:spam_cards/src/spam_cards_style.dart';
 
-import 'spam_cards_model.dart';
-import 'ui/decision_spam_layout.dart';
+import 'model/spam_cards_model.dart';
+import 'ui/spam_cards_layout.dart';
 
 class SpamCardsService extends ChangeNotifier {
   final _log = Logger('SpamCardsService');
   final DecisionSdk decisionSdk;
   final SpamCardsStyle style;
+  late final SpamCardsPresenter presenter;
 
-  SpamCardsService({required this.decisionSdk, required this.style});
+  SpamCardsService({required this.decisionSdk, required this.style}) {
+    presenter = SpamCardsPresenter(this);
+  }
 
   Future<void> addCards(
-      {required String provider,
-      required List<dynamic> messages,
-      required String email,
-      required String token}) async {
+      {Function(int senderId)? onUnsubscribe,
+      Function(int senderId)? onKeep,
+      required String provider,
+      required List messages}) async {
     List<SpamCardsModel> spamModels = [];
     String calculatedFrequency = _calculateFrequency(messages);
     double calculatedOpenRate = _calculateOpenRate(messages);
@@ -25,67 +29,12 @@ class SpamCardsService extends ChangeNotifier {
         messages: messages,
         calculatedFrequency: calculatedFrequency,
         calculatedOpenRate: calculatedOpenRate,
-        dataProvider: provider,
-        token: token));
+        provider: provider,
+        onKeep: onKeep,
+        onUnsubscribe: onUnsubscribe));
     decisionSdk.addCards(spamModels
         .map((spamModel) => SpamCardsLayout(this, spamModel))
         .toList());
-  }
-
-  Future<bool> unsubscribe(ApiOAuthModelAccount account,
-      String unsubscribeMailTo, String list) async {
-    DataFetchInterfaceEmail? interfaceEmail = await _getEmailInterface(account);
-    if (interfaceEmail == null) throw 'Invalid email interface';
-    if (!await _isConnected(account)) {
-      throw 'ApiOauthAccount ${account.provider} not connected.';
-    }
-
-    Uri uri = Uri.parse(unsubscribeMailTo);
-    String to = uri.path;
-    String subject = uri.queryParameters['subject'] ?? "Unsubscribe from $list";
-    String body = '''
-Hello,<br /><br />
-I'd like to stop receiving emails from this email list.<br /><br />
-Thanks,<br /><br />
-${account.displayName ?? ''}<br />
-<br />
-''';
-    bool success = false;
-    await interfaceEmail.send(
-        account: account,
-        to: to,
-        body: body,
-        subject: subject,
-        onResult: (res) => success = res);
-    return success;
-  }
-
-  Future<void> unsubscribeCallback(int senderId) async {
-    var sender = await decisionSdk.apiEmailSenderService.getById(senderId);
-    if (sender != null) {
-      try {
-        var account = (await decisionSdk.apiAuthService.getAccount())!;
-        String? mailTo = sender.unsubscribeMailTo;
-        if (mailTo != null) {
-          String list = sender.name ?? sender.email!;
-          decisionSdk.dataFetchService.email
-              .unsubscribe(account, mailTo, list)
-              .then((success) => _log.finest(
-                  mailTo + ' unsubscribed status: ' + success.toString()));
-          await decisionSdk.apiEmailSenderService.markAsUnsubscribed(sender);
-        }
-      } catch (e) {
-        _log.warning(
-            'Failed to unsubscribe from: ' + sender.unsubscribeMailTo!, e);
-      }
-    }
-  }
-
-  Future<void> keepCallback(int senderId) async {
-    var sender = await decisionSdk.apiEmailSenderService.getById(senderId);
-    if (sender != null) {
-      await decisionSdk.apiEmailSenderService.markAsKept(sender);
-    }
   }
 
   String _calculateFrequency(List<dynamic> messages) {

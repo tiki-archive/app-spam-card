@@ -3,12 +3,13 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-import 'package:decision_sdk/src/decision_style.dart';
 import 'package:flutter/material.dart';
+
+import '../spam_cards_style.dart';
 
 class SpamCardsViewOpened extends StatelessWidget {
   final double? percent;
-  final DecisionSdkStyle style;
+  final SpamCardsStyle style;
 
   const SpamCardsViewOpened(this.percent, this.style, {Key? key})
       : super(key: key);

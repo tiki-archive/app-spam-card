@@ -2,13 +2,14 @@
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
-import 'package:decision_sdk/src/decision_style.dart';
 import 'package:flutter/material.dart';
+
+import '../../spam_cards_style.dart';
 
 class SecurityScoreModalViewScoreNum extends StatelessWidget {
   final int? score;
   final String label;
-  final DecisionSdkStyle style;
+  final SpamCardsStyle style;
 
   SecurityScoreModalViewScoreNum(
       {Key? key, double? score, required this.label, required this.style})

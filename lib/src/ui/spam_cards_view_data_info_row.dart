@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../../decision_style.dart';
-import 'decision_spam_view_opened.dart';
-import 'decision_spam_view_sent.dart';
+import '../spam_cards_style.dart';
+import 'spam_cards_view_opened.dart';
+import 'spam_cards_view_sent.dart';
 
 class SpamCardsViewDataInfoRow extends StatelessWidget {
   final String? sinceYear;
   final int? totalEmails;
   final double? opened;
 
-  final DecisionSdkStyle style;
+  final SpamCardsStyle style;
 
   const SpamCardsViewDataInfoRow(
       this.sinceYear, this.totalEmails, this.opened, this.style,

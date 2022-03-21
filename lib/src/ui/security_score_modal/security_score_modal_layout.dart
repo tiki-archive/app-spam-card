@@ -3,10 +3,10 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-import 'package:decision_sdk/src/decision_style.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../spam_cards/lib/src/security_score_modal_model.dart';
+import '../../model/security_score_modal_model.dart';
+import '../../spam_cards_style.dart';
 import 'security_score_modal_view_button.dart';
 import 'security_score_modal_view_desc.dart';
 import 'security_score_modal_view_explain.dart';
@@ -16,7 +16,7 @@ class SecurityScoreModalLayout extends StatelessWidget {
   static const String _title = 'Security score';
 
   final SecurityScoreModalModel model;
-  final DecisionSdkStyle style;
+  final SpamCardsStyle style;
 
   const SecurityScoreModalLayout(this.model, this.style, {Key? key})
       : super(key: key);

@@ -1,9 +1,9 @@
 import 'package:decision_sdk/decision.dart';
 import 'package:flutter/material.dart';
+import 'package:spam_cards/src/ui/spam_cards_layout_content.dart';
 
-import '../spam_cards_model.dart';
+import '../model/spam_cards_model.dart';
 import '../spam_cards_service.dart';
-import 'decision_spam_layout_content.dart';
 
 class SpamCardsLayout implements DecisionSdkAbstractCard {
   final SpamCardsModel cardSpamModel;
@@ -13,11 +13,11 @@ class SpamCardsLayout implements DecisionSdkAbstractCard {
 
   @override
   Future<void> callbackNo(BuildContext context) async =>
-      service.unsubscribeCallback(cardSpamModel.senderId);
+      cardSpamModel.onUnsubscribe!(senderId: cardSpamModel.senderId);
 
   @override
   Future<void> callbackYes(BuildContext context) async =>
-      service.keepCallback(cardSpamModel.senderId);
+      cardSpamModel.onKeep!(senderId: cardSpamModel.senderId);
 
   @override
   Widget content(BuildContext context) {

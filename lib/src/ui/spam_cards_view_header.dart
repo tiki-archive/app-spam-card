@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../decision_spam_service.dart';
+import '../spam_cards_service.dart';
 
 class SpamCardsViewHeader extends StatelessWidget {
   final GlobalKey shareKey;
@@ -25,9 +25,7 @@ class SpamCardsViewHeader extends StatelessWidget {
               child: Row(children: [
             Image.asset("res/images/$provider-round-logo.png",
                 width: service.style.size(20)),
-            Padding(
-                padding: EdgeInsets.only(
-                    right: service.style.size(7))),
+            Padding(padding: EdgeInsets.only(right: service.style.size(7))),
             Text("Your $provider account",
                 style: TextStyle(
                   fontFamily: service.style.textFont,

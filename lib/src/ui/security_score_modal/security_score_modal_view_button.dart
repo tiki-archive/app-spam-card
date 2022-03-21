@@ -3,12 +3,13 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-import 'package:decision_sdk/src/decision_style.dart';
 import 'package:flutter/material.dart';
+
+import '../../spam_cards_style.dart';
 
 class SecurityScoreModalViewButton extends StatelessWidget {
   static const String _text = 'OK, got it';
-  final DecisionSdkStyle style;
+  final SpamCardsStyle style;
 
   const SecurityScoreModalViewButton({Key? key, required this.style})
       : super(key: key);

@@ -15,9 +15,9 @@ dependencies:
   decision_sdk:
     path: ../decision_sdk
   google_provider:
-    git: https://github.com/tiki/google_provider/
+    path: ../google_provider
   microsoft_provider:
-    git: https://github.com/tiki/microsoft_provider/
+    path: ../microsoft_provider
 
 dev_dependencies:
   flutter_test:

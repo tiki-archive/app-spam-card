@@ -1,10 +1,11 @@
-import 'package:decision_sdk/src/decision_style.dart';
 import 'package:flutter/material.dart';
+
+import '../spam_cards_style.dart';
 
 class SpamCardsViewFrequency extends StatelessWidget {
   final String frequency;
   final String category;
-  final DecisionSdkStyle style;
+  final SpamCardsStyle style;
 
   const SpamCardsViewFrequency(this.frequency, this.category, this.style,
       {Key? key})
