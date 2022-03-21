@@ -17,6 +17,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  decision_sdk:
+    path: ../../decision_sdk
 
   spam_cards:
     # When depending on this package from a real application you should use:

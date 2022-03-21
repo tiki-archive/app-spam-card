@@ -65,7 +65,7 @@ packages:
     source: hosted
     version: "1.0.4"
   decision_sdk:
-    dependency: transitive
+    dependency: "direct main"
     description:
       path: "../../decision_sdk"
       relative: true
