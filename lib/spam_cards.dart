@@ -6,9 +6,10 @@ import 'src/spam_cards_style.dart';
 class SpamCards {
   final SpamCardsService _service;
 
-  SpamCards({SpamCardsStyle? style, required DecisionSdk decisionSdk})
+  SpamCards({SpamCardsStyle? style, DecisionSdk? decisionSdk})
       : _service = SpamCardsService(
-            decisionSdk: decisionSdk, style: style ?? SpamCardsStyle());
+            decisionSdk: decisionSdk ?? DecisionSdk(),
+            style: style ?? SpamCardsStyle());
 
   void addCards({
     Function(int senderId)? onUnsubscribe,
