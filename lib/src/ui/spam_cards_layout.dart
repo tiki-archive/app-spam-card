@@ -14,14 +14,14 @@ class SpamCardsLayout implements DecisionSdkAbstractCard {
   @override
   Future<void> callbackNo(BuildContext context) async =>
       cardSpamModel.onUnsubscribe != null
-          ? cardSpamModel.onUnsubscribe!(senderId: cardSpamModel.senderId)
-          : print('');
+          ? cardSpamModel.onUnsubscribe!(cardSpamModel.senderEmail)
+          : null;
 
   @override
   Future<void> callbackYes(BuildContext context) async =>
       cardSpamModel.onKeep != null
-          ? cardSpamModel.onKeep!(senderId: cardSpamModel.senderId)
-          : print('');
+          ? cardSpamModel.onKeep!(cardSpamModel.senderEmail)
+          : null;
 
   @override
   Widget content(BuildContext context) {

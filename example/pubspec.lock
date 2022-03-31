@@ -131,9 +131,11 @@ packages:
   google_provider:
     dependency: transitive
     description:
-      path: "../../google_provider"
-      relative: true
-    source: path
+      path: "."
+      ref: HEAD
+      resolved-ref: "786c44ca8d733dd0fe95efa6fd6ea989c01fa383"
+      url: "https://github.com/tiki/google_provider"
+    source: git
     version: "0.0.4"
   http:
     dependency: transitive
@@ -212,9 +214,11 @@ packages:
   microsoft_provider:
     dependency: transitive
     description:
-      path: "../../microsoft_provider"
-      relative: true
-    source: path
+      path: "."
+      ref: HEAD
+      resolved-ref: "401284233bce0766bcc38d753c3eb87030bd47de"
+      url: "https://github.com/tiki/microsoft_provider"
+    source: git
     version: "0.0.4"
   mime:
     dependency: transitive

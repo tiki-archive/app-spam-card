@@ -13,7 +13,6 @@ class SpamCardsModel {
   String provider;
   Function? onUnsubscribe;
   Function? onKeep;
-  late int senderId;
 
   SpamCardsModel({
     required this.provider,
@@ -29,8 +28,7 @@ class SpamCardsModel {
     this.hackingScore,
     this.senderEmail,
     this.onUnsubscribe,
-    this.onKeep,
-    required this.senderId,
+    this.onKeep
   });
 
   @override
@@ -48,8 +46,7 @@ class SpamCardsModel {
           securityScore == other.securityScore &&
           sensitivityScore == other.sensitivityScore &&
           hackingScore == other.hackingScore &&
-          senderEmail == other.senderEmail &&
-          senderId == other.senderId;
+          senderEmail == other.senderEmail;
 
   @override
   int get hashCode =>
@@ -63,8 +60,7 @@ class SpamCardsModel {
       securityScore.hashCode ^
       sensitivityScore.hashCode ^
       hackingScore.hashCode ^
-      senderEmail.hashCode ^
-      senderId.hashCode;
+      senderEmail.hashCode;
 
   SpamCardsModel.fromMessageList(
       {required List messages,
@@ -81,7 +77,6 @@ class SpamCardsModel {
         securityScore = messages[0].sender?.company?.securityScore,
         sensitivityScore = messages[0].sender?.company?.sensitivityScore,
         hackingScore = messages[0].sender?.company?.breachScore,
-        senderId = messages[0].sender.senderId,
         senderEmail = messages[0].sender?.email,
         totalEmails = messages.length,
         sinceYear = messages[0].sender?.emailSince?.year.toString();

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:spam_cards/src/spam_cards_service.dart';
 
 import '../model/security_score_modal_model.dart';
@@ -10,10 +9,12 @@ class SpamCardsViewSecurity extends StatelessWidget {
   final double? sensitivity;
   final double? hacking;
   final SpamCardsStyle style;
+  final SpamCardsService service;
 
   const SpamCardsViewSecurity(
       {Key? key,
       double? security,
+      required this.service,
       this.sensitivity,
       this.hacking,
       required this.style})
@@ -22,7 +23,6 @@ class SpamCardsViewSecurity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SpamCardsService service = Provider.of<SpamCardsService>(context);
     return Column(children: [
       Row(
           mainAxisAlignment: MainAxisAlignment.center,

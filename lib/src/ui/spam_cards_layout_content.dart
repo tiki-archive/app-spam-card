@@ -79,6 +79,7 @@ class SpamCardsLayoutContent extends StatelessWidget {
                             padding:
                                 EdgeInsets.only(top: service.style.size(20)),
                             child: SpamCardsViewSecurity(
+                              service: service,
                               security: cardSpamModel.securityScore,
                               sensitivity: cardSpamModel.sensitivityScore,
                               hacking: cardSpamModel.hackingScore,

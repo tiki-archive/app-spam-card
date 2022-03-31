@@ -1,6 +1,5 @@
 import 'package:decision_sdk/decision.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:logging/logging.dart';
 import 'package:spam_cards/src/spam_cards_presenter.dart';
 import 'package:spam_cards/src/spam_cards_style.dart';
 
@@ -8,7 +7,6 @@ import 'model/spam_cards_model.dart';
 import 'ui/spam_cards_layout.dart';
 
 class SpamCardsService extends ChangeNotifier {
-  final _log = Logger('SpamCardsService');
   final DecisionSdk decisionSdk;
   final SpamCardsStyle style;
   late final SpamCardsPresenter presenter;
@@ -18,23 +16,25 @@ class SpamCardsService extends ChangeNotifier {
   }
 
   Future<void> addCards(
-      {Function(int senderId)? onUnsubscribe,
-      Function(int senderId)? onKeep,
+      {Function(String senderEmail)? onUnsubscribe,
+      Function(String senderEmail)? onKeep,
       required String provider,
       required List messages}) async {
-    List<SpamCardsModel> spamModels = [];
-    String calculatedFrequency = _calculateFrequency(messages);
-    double calculatedOpenRate = _calculateOpenRate(messages);
-    spamModels.add(SpamCardsModel.fromMessageList(
-        messages: messages,
-        calculatedFrequency: calculatedFrequency,
-        calculatedOpenRate: calculatedOpenRate,
-        provider: provider,
-        onKeep: onKeep,
-        onUnsubscribe: onUnsubscribe));
-    decisionSdk.addCards(spamModels
-        .map((spamModel) => SpamCardsLayout(this, spamModel))
-        .toList());
+    if(messages.isNotEmpty) {
+      List<SpamCardsModel> spamModels = [];
+      String calculatedFrequency = _calculateFrequency(messages);
+      double calculatedOpenRate = _calculateOpenRate(messages);
+      spamModels.add(SpamCardsModel.fromMessageList(
+          messages: messages,
+          calculatedFrequency: calculatedFrequency,
+          calculatedOpenRate: calculatedOpenRate,
+          provider: provider,
+          onKeep: onKeep,
+          onUnsubscribe: onUnsubscribe));
+      decisionSdk.addCards(spamModels
+          .map((spamModel) => SpamCardsLayout(this, spamModel))
+          .toList());
+    }
   }
 
   String _calculateFrequency(List<dynamic> messages) {

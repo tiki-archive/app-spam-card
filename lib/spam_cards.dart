@@ -12,8 +12,8 @@ class SpamCards {
             style: style ?? SpamCardsStyle());
 
   void addCards({
-    Function(int senderId)? onUnsubscribe,
-    Function(int senderId)? onKeep,
+    Function(String senderEmail)? onUnsubscribe,
+    Function(String senderEmail)? onKeep,
     required List messages,
     required String provider,
   }) =>
