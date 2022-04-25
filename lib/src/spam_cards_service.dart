@@ -1,4 +1,4 @@
-import 'package:decision_sdk/decision.dart';
+import 'package:decision/decision.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:spam_cards/src/spam_cards_presenter.dart';
 import 'package:spam_cards/src/spam_cards_style.dart';
@@ -7,11 +7,11 @@ import 'model/spam_cards_model.dart';
 import 'ui/spam_cards_layout.dart';
 
 class SpamCardsService extends ChangeNotifier {
-  final DecisionSdk decisionSdk;
+  final Decision decision;
   final SpamCardsStyle style;
   late final SpamCardsPresenter presenter;
 
-  SpamCardsService({required this.decisionSdk, required this.style}) {
+  SpamCardsService({required this.decision, required this.style}) {
     presenter = SpamCardsPresenter(this);
   }
 
@@ -20,7 +20,7 @@ class SpamCardsService extends ChangeNotifier {
       Function(String senderEmail)? onKeep,
       required String provider,
       required List messages}) async {
-    if(messages.isNotEmpty) {
+    if (messages.isNotEmpty) {
       List<SpamCardsModel> spamModels = [];
       String calculatedFrequency = _calculateFrequency(messages);
       double calculatedOpenRate = _calculateOpenRate(messages);
@@ -31,7 +31,7 @@ class SpamCardsService extends ChangeNotifier {
           provider: provider,
           onKeep: onKeep,
           onUnsubscribe: onUnsubscribe));
-      decisionSdk.addCards(spamModels
+      decision.addCards(spamModels
           .map((spamModel) => SpamCardsLayout(this, spamModel))
           .toList());
     }

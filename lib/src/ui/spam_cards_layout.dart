@@ -1,11 +1,11 @@
-import 'package:decision_sdk/decision.dart';
+import 'package:decision/decision.dart';
 import 'package:flutter/material.dart';
 import 'package:spam_cards/src/ui/spam_cards_layout_content.dart';
 
 import '../model/spam_cards_model.dart';
 import '../spam_cards_service.dart';
 
-class SpamCardsLayout implements DecisionSdkAbstractCard {
+class SpamCardsLayout implements DecisionAbstractCard {
   final SpamCardsModel cardSpamModel;
   final SpamCardsService service;
 

@@ -4,7 +4,6 @@ version: 0.0.2
 homepage: https://mytiki.com
 repository: https://github.com/tiki/spam_cards
 issue_tracker: https://github.com/tiki/spam_cards/issues
-publish_to: none
 
 environment:
   sdk: ">=2.16.1 <3.0.0"
@@ -13,18 +12,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  decision_sdk:
-    git:
-      url: https://github.com/tiki/decision
-      ref: 0.0.3
+  decision:
+    path: ../decision
   google_provider:
-    git:
-      url: https://github.com/tiki/google_provider
-      ref: 0.0.5
+    path: ../google_provider
   microsoft_provider:
-    git:
-      url: https://github.com/tiki/microsoft_provider
-      ref: 0.0.5
+    path: ../microsoft_provider
 
 dev_dependencies:
   flutter_test:
