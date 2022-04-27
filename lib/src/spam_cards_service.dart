@@ -1,17 +1,15 @@
 import 'package:decision/decision.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:spam_cards/src/spam_cards_presenter.dart';
-import 'package:spam_cards/src/spam_cards_style.dart';
 
 import 'model/spam_cards_model.dart';
 import 'ui/spam_cards_layout.dart';
 
 class SpamCardsService extends ChangeNotifier {
   final Decision decision;
-  final SpamCardsStyle style;
   late final SpamCardsPresenter presenter;
 
-  SpamCardsService({required this.decision, required this.style}) {
+  SpamCardsService({required this.decision}) {
     presenter = SpamCardsPresenter(this);
   }
 

@@ -4,16 +4,15 @@
  */
 
 import 'package:flutter/material.dart';
-
-import '../spam_cards_style.dart';
+import 'package:tiki_style/tiki_style.dart';
 
 class SpamCardsViewSent extends StatelessWidget {
   final int? totalEmails;
   final String? sinceYear;
-  final SpamCardsStyle style;
+  
 
   const SpamCardsViewSent(this.totalEmails, this.sinceYear,
-      {Key? key, required this.style})
+      {Key? key})
       : super(key: key);
 
   @override
@@ -24,26 +23,26 @@ class SpamCardsViewSent extends StatelessWidget {
             style: TextStyle(
                 fontWeight: FontWeight.w600,
                 color: const Color(0xFF00133F),
-                fontSize: style.text(10))),
-        Padding(padding: EdgeInsets.only(bottom: style.size(2))),
+                fontSize: SizeProvider.instance.text(10))),
+        Padding(padding: EdgeInsets.only(bottom: SizeProvider.instance.size(2))),
         Text(
           totalEmails.toString(),
           style: TextStyle(
-              fontFamily: style.bigTxtFontFamily,
-              fontSize: style.text(45),
+              fontFamily: TextProvider.familyKoara, package: 'tiki_style',
+              fontSize: SizeProvider.instance.text(45),
               fontWeight: FontWeight.bold),
         ),
         Text(totalEmails != null && totalEmails! > 1 ? "emails" : "email",
             style: TextStyle(
                 height: 0.5,
                 fontWeight: FontWeight.w800,
-                fontSize: style.text(10))),
-        Padding(padding: EdgeInsets.only(bottom: style.size(14))),
+                fontSize: SizeProvider.instance.text(10))),
+        Padding(padding: EdgeInsets.only(bottom: SizeProvider.instance.size(14))),
         ClipRRect(
-            borderRadius: BorderRadius.circular(style.size(5)),
+            borderRadius: BorderRadius.circular(SizeProvider.instance.size(5)),
             child: Container(
                 padding: EdgeInsets.symmetric(
-                    vertical: style.size(8), horizontal: style.size(7)),
+                    vertical: SizeProvider.instance.size(8), horizontal: SizeProvider.instance.size(7)),
                 color: const Color(0xFF00133F),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -52,13 +51,13 @@ class SpamCardsViewSent extends StatelessWidget {
                   children: [
                     Padding(
                         child: Icon(Icons.calendar_today,
-                            color: Colors.white, size: style.text(9)),
-                        padding: EdgeInsets.only(right: style.size(15))),
+                            color: Colors.white, size: SizeProvider.instance.text(9)),
+                        padding: EdgeInsets.only(right: SizeProvider.instance.size(15))),
                     Text(
                       " since ${sinceYear.toString()}",
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: style.text(10),
+                          fontSize: SizeProvider.instance.text(10),
                           fontWeight: FontWeight.w800),
                     )
                   ],

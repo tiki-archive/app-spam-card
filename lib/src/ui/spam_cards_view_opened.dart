@@ -4,14 +4,13 @@
  */
 
 import 'package:flutter/material.dart';
-
-import '../spam_cards_style.dart';
+import 'package:tiki_style/tiki_style.dart';
 
 class SpamCardsViewOpened extends StatelessWidget {
   final double? percent;
-  final SpamCardsStyle style;
+  
 
-  const SpamCardsViewOpened(this.percent, this.style, {Key? key})
+  const SpamCardsViewOpened(this.percent, {Key? key})
       : super(key: key);
 
   @override
@@ -19,14 +18,15 @@ class SpamCardsViewOpened extends StatelessWidget {
     return Column(children: [
       Text("You've opened",
           style: TextStyle(
-              fontFamily: style.textFont,
+              fontFamily: TextProvider.familyNunitoSans,
+              package: 'tiki_style',
               fontWeight: FontWeight.w600,
-              fontSize: style.text(10),
+              fontSize: SizeProvider.instance.text(10),
               color: const Color(0xFF00133F))),
       Container(
-          margin: EdgeInsets.symmetric(vertical: style.size(8)),
-          height: style.size(6),
-          width: style.size(6),
+          margin: EdgeInsets.symmetric(vertical: SizeProvider.instance.size(8)),
+          height: SizeProvider.instance.size(6),
+          width: SizeProvider.instance.size(6),
           child: Stack(children: [
             Center(
                 child: RichText(
@@ -35,27 +35,27 @@ class SpamCardsViewOpened extends StatelessWidget {
                         //TODO FIX!
                         style: TextStyle(
                             color: _getProgressColor(percent! * 100),
-                            fontFamily: style.bigTxtFontFamily,
-                            fontSize: style.text(19),
+                            fontFamily: TextProvider.familyKoara, package: 'tiki_style',
+                            fontSize: SizeProvider.instance.text(19),
                             fontWeight: FontWeight.bold),
                         children: [
                   TextSpan(
                     text: " ",
-                    style: TextStyle(fontSize: style.text(6)),
+                    style: TextStyle(fontSize: SizeProvider.instance.text(6)),
                   ),
                   TextSpan(
                     text: "%",
                     style: TextStyle(
-                        fontFamily: style.textFont,
-                        fontSize: style.text(11.5),
+                        fontFamily: TextProvider.familyNunitoSans, package: 'tiki_style',
+                        fontSize: SizeProvider.instance.text(11.5),
                         fontWeight: FontWeight.w800),
                   )
                 ]))),
             SizedBox(
-              height: style.size(6),
-              width: style.size(6),
+              height: SizeProvider.instance.size(6),
+              width: SizeProvider.instance.size(6),
               child: CircularProgressIndicator(
-                  strokeWidth: style.size(1),
+                  strokeWidth: SizeProvider.instance.size(1),
                   backgroundColor: const Color(0xFFC4C4C4),
                   value: percent,
                   color: _getProgressColor(percent! * 100)),
@@ -63,9 +63,9 @@ class SpamCardsViewOpened extends StatelessWidget {
           ])),
       Text("of their emails",
           style: TextStyle(
-              fontFamily: style.textFont,
+              fontFamily: TextProvider.familyNunitoSans, package: 'tiki_style',
               fontWeight: FontWeight.w600,
-              fontSize: style.text(10),
+              fontSize: SizeProvider.instance.text(10),
               color: const Color(0xFF00133F)))
     ]);
   }

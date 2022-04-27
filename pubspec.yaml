@@ -12,12 +12,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  decision:
-    path: ../decision
-  google_provider:
-    path: ../google_provider
-  microsoft_provider:
-    path: ../microsoft_provider
+  decision: ^0.0.4
+  google_provider: ^0.0.7
+  microsoft_provider: ^0.0.7
+  tiki_style: ^0.0.10
 
 dev_dependencies:
   flutter_test:

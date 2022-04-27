@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tiki_style/tiki_style.dart';
 
-import '../spam_cards_style.dart';
 import 'spam_cards_view_opened.dart';
 import 'spam_cards_view_sent.dart';
 
@@ -9,10 +9,10 @@ class SpamCardsViewDataInfoRow extends StatelessWidget {
   final int? totalEmails;
   final double? opened;
 
-  final SpamCardsStyle style;
+  
 
   const SpamCardsViewDataInfoRow(
-      this.sinceYear, this.totalEmails, this.opened, this.style,
+      this.sinceYear, this.totalEmails, this.opened,
       {Key? key})
       : super(key: key);
 
@@ -23,18 +23,17 @@ class SpamCardsViewDataInfoRow extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-              width: style.size(150),
+              width: SizeProvider.instance.size(150),
               child: SpamCardsViewSent(
                 totalEmails,
                 sinceYear,
-                style: style,
               )),
           Container(
               width: 1,
-              height: style.size(120),
+              height: SizeProvider.instance.size(120),
               color: const Color(0xFFD8D8D8)),
           SizedBox(
-              width: style.size(150), child: SpamCardsViewOpened(opened, style))
+              width: SizeProvider.instance.size(150), child: SpamCardsViewOpened(opened))
         ]);
   }
 }

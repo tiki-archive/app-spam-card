@@ -3,8 +3,8 @@
  * MIT license. See LICENSE file in root directory.
  */
 import 'package:flutter/material.dart';
+import 'package:tiki_style/tiki_style.dart';
 
-import '../../spam_cards_style.dart';
 import 'security_score_modal_view_score_num.dart';
 
 class SecurityScoreModalViewScore extends StatelessWidget {
@@ -15,14 +15,13 @@ class SecurityScoreModalViewScore extends StatelessWidget {
   final double? hacking;
   final double? sensitivity;
   final double? security;
-  final SpamCardsStyle style;
+  
 
   const SecurityScoreModalViewScore(
       {Key? key,
       this.hacking,
       this.sensitivity,
-      this.security,
-      required this.style})
+      this.security})
       : super(key: key);
 
   @override
@@ -31,12 +30,13 @@ class SecurityScoreModalViewScore extends StatelessWidget {
       Text(_leadIn,
           style: TextStyle(
               color: const Color(0xFF00133F),
-              fontFamily: style.textFont,
-              fontSize: style.text(11.5),
+              fontFamily: TextProvider.familyNunitoSans,
+              package: 'tiki_style',
+              fontSize: SizeProvider.instance.text(11.5),
               fontWeight: FontWeight.w600)),
       if (security != null)
         Container(
-            margin: EdgeInsets.only(top: style.size(25)),
+            margin: EdgeInsets.only(top: SizeProvider.instance.size(25)),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,17 +44,15 @@ class SecurityScoreModalViewScore extends StatelessWidget {
                   SecurityScoreModalViewScoreNum(
                     score: sensitivity,
                     label: _labelSensitivity,
-                    style: style,
                   ),
                   Container(
                     width: 1,
-                    height: style.size(65),
+                    height: SizeProvider.instance.size(65),
                     color: const Color(0xFFAFAFAF),
                   ),
                   SecurityScoreModalViewScoreNum(
                     score: hacking,
                     label: _labelHacking,
-                    style: style,
                   ),
                 ])),
     ]);

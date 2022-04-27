@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
-import '../spam_cards_style.dart';
+import 'package:tiki_style/tiki_style.dart';
 
 class SpamCardsViewSeparator extends StatelessWidget {
-  final SpamCardsStyle style;
-  const SpamCardsViewSeparator({Key? key, required this.style})
+  
+  const SpamCardsViewSeparator({Key? key})
       : super(key: key);
 
   @override
@@ -12,14 +11,13 @@ class SpamCardsViewSeparator extends StatelessWidget {
     return Row(mainAxisSize: MainAxisSize.max, children: [
       Expanded(
           child: Container(
-              margin: EdgeInsets.only(right: style.size(9)),
+              margin: EdgeInsets.only(right: SizeProvider.instance.size(9)),
               height: 1,
               color: const Color(0xFFD8D8D8))),
-      Image.asset("res/images/icon-email.png",
-          package: 'decision', height: style.size(16)),
+      Icon(IconProvider.email_outline, size: SizeProvider.instance.size(16)),
       Expanded(
           child: Container(
-              margin: EdgeInsets.only(left: style.size(10)),
+              margin: EdgeInsets.only(left: SizeProvider.instance.size(10)),
               height: 1,
               color: const Color(0xFFD8D8D8))),
     ]);
