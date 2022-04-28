@@ -66,13 +66,13 @@ class SecurityScoreModalLayout extends StatelessWidget {
                               sensitivity: model.sensitivity)),
                       Container(
                           margin: EdgeInsets.only(top: SizeProvider.instance.size(25)),
-                          child: SecurityScoreModalViewExplain()),
+                          child: const SecurityScoreModalViewExplain()),
                       Expanded(
                           child: Container(
                               alignment: Alignment.bottomCenter,
                               margin: EdgeInsets.only(bottom: SizeProvider.instance.size(25)),
                               child:
-                                  SecurityScoreModalViewButton()))
+                                  const SecurityScoreModalViewButton()))
                     ]))));
   }
 }

@@ -66,7 +66,7 @@ class SpamCardsLayoutContent extends StatelessWidget {
                                 left: SizeProvider.instance.size(25),
                                 right: SizeProvider.instance.size(25)),
                             child:
-                                SpamCardsViewSeparator()),
+                                const SpamCardsViewSeparator()),
                         Padding(
                             padding:
                                 EdgeInsets.only(top: SizeProvider.instance.size(8)),

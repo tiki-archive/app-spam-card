@@ -67,42 +67,40 @@ class SpamCardsViewSecurity extends StatelessWidget {
         stars.add(Padding(
             padding: EdgeInsets.symmetric(horizontal: SizeProvider.instance.size(4)),
             child: Stack(children: [
-              Image.asset("res/images/star-grey.png",
-                  width: SizeProvider.instance.size(20)),
+              Icon(IconProvider.star,
+                  size:SizeProvider.instance.size(20),
+                  color:ColorProvider.greyThree),
               ClipRect(
                 child: Align(
                     alignment: Alignment.centerLeft,
                     widthFactor: 0.5,
-                    child: Image.asset("res/images/star-$color.png",
-                        package: 'decision', width: SizeProvider.instance.size(20))),
+                    child: Icon(IconProvider.star, size: SizeProvider.instance.size(20), color: color))
               ),
             ])));
       } else if (i >= starRate.ceil()) {
         stars.add(Padding(
             padding: EdgeInsets.symmetric(horizontal: SizeProvider.instance.size(2)),
-            child: Image.asset("res/images/star-grey.png",
-                package: 'decision', width: SizeProvider.instance.size(20))));
+            child: Icon(IconProvider.star, size: SizeProvider.instance.size(20), color: ColorProvider.greyFour)));
       } else {
         stars.add(Padding(
             padding: EdgeInsets.symmetric(horizontal: SizeProvider.instance.size(2)),
-            child: Image.asset("res/images/star-$color.png",
-                package: 'decision', width: SizeProvider.instance.size(20))));
+            child: Icon(IconProvider.star, size: SizeProvider.instance.size(20), color: color)));
       }
     }
     return stars;
   }
 
-  String _getColor() {
+  Color _getColor() {
     if (security == null) {
-      return "grey";
+      return ColorProvider.greyFour;
     } else {
       var starRate = security ?? 0;
       if (starRate < 2) {
-        return "red";
+        return ColorProvider.red;
       } else if (starRate < 4) {
-        return "yellow";
+        return ColorProvider.yellow;
       } else {
-        return "green";
+        return ColorProvider.green;
       }
     }
   }

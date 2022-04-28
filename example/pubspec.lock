@@ -74,9 +74,9 @@ packages:
   decision:
     dependency: transitive
     description:
-      path: "../../decision"
-      relative: true
-    source: path
+      name: decision
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "0.0.4"
   fake_async:
     dependency: transitive
@@ -138,10 +138,10 @@ packages:
   google_provider:
     dependency: transitive
     description:
-      path: "../../google_provider"
-      relative: true
-    source: path
-    version: "0.0.7"
+      name: google_provider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.9"
   http:
     dependency: transitive
     description:
@@ -222,10 +222,10 @@ packages:
   microsoft_provider:
     dependency: transitive
     description:
-      path: "../../microsoft_provider"
-      relative: true
-    source: path
-    version: "0.0.7"
+      name: microsoft_provider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.8"
   mime:
     dependency: transitive
     description:
@@ -479,19 +479,17 @@ packages:
   tiki_kv:
     dependency: transitive
     description:
-      path: "."
-      ref: "0.0.2"
-      resolved-ref: b3e1c2f433cb99fedfe4612e297b5c372678e8a7
-      url: "https://github.com/tiki/tiki_kv"
-    source: git
-    version: "0.0.2"
+      name: tiki_kv
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.1"
   tiki_style:
     dependency: transitive
     description:
       name: tiki_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.9"
+    version: "0.0.10"
   typed_data:
     dependency: transitive
     description:

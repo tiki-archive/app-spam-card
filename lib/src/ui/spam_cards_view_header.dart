@@ -24,7 +24,7 @@ class SpamCardsViewHeader extends StatelessWidget {
         child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
           Expanded(
               child: Row(children: [
-              ImgProvider.getByName("${provider}_round_logo.png",
+              SizedBox(child: FittedBox(fit:BoxFit.fill, child: ImgProvider.getByName("${provider}_round_logo.png")),
                 width: SizeProvider.instance.size(20)),
             Padding(padding: EdgeInsets.only(right: SizeProvider.instance.size(7))),
             Text("Your $provider account",
