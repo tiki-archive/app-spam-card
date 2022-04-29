@@ -8,10 +8,8 @@ import 'package:tiki_style/tiki_style.dart';
 
 class SpamCardsViewOpened extends StatelessWidget {
   final double? percent;
-  
 
-  const SpamCardsViewOpened(this.percent, {Key? key})
-      : super(key: key);
+  const SpamCardsViewOpened(this.percent, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +33,8 @@ class SpamCardsViewOpened extends StatelessWidget {
                         //TODO FIX!
                         style: TextStyle(
                             color: _getProgressColor(percent! * 100),
-                            fontFamily: TextProvider.familyKoara, package: 'tiki_style',
+                            fontFamily: TextProvider.familyKoara,
+                            package: 'tiki_style',
                             fontSize: SizeProvider.instance.text(19),
                             fontWeight: FontWeight.bold),
                         children: [
@@ -46,7 +45,8 @@ class SpamCardsViewOpened extends StatelessWidget {
                   TextSpan(
                     text: "%",
                     style: TextStyle(
-                        fontFamily: TextProvider.familyNunitoSans, package: 'tiki_style',
+                        fontFamily: TextProvider.familyNunitoSans,
+                        package: 'tiki_style',
                         fontSize: SizeProvider.instance.text(11.5),
                         fontWeight: FontWeight.w800),
                   )
@@ -63,7 +63,8 @@ class SpamCardsViewOpened extends StatelessWidget {
           ])),
       Text("of their emails",
           style: TextStyle(
-              fontFamily: TextProvider.familyNunitoSans, package: 'tiki_style',
+              fontFamily: TextProvider.familyNunitoSans,
+              package: 'tiki_style',
               fontWeight: FontWeight.w600,
               fontSize: SizeProvider.instance.text(10),
               color: const Color(0xFF00133F)))

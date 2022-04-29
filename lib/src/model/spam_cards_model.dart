@@ -14,22 +14,21 @@ class SpamCardsModel {
   Function? onUnsubscribe;
   Function? onKeep;
 
-  SpamCardsModel({
-    required this.provider,
-    this.logoUrl,
-    this.category,
-    required this.companyName,
-    required this.frequency,
-    this.sinceYear,
-    this.totalEmails,
-    required this.openRate,
-    this.securityScore,
-    this.sensitivityScore,
-    this.hackingScore,
-    this.senderEmail,
-    this.onUnsubscribe,
-    this.onKeep
-  });
+  SpamCardsModel(
+      {required this.provider,
+      this.logoUrl,
+      this.category,
+      required this.companyName,
+      required this.frequency,
+      this.sinceYear,
+      this.totalEmails,
+      required this.openRate,
+      this.securityScore,
+      this.sensitivityScore,
+      this.hackingScore,
+      this.senderEmail,
+      this.onUnsubscribe,
+      this.onKeep});
 
   @override
   bool operator ==(Object other) =>

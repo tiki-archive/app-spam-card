@@ -5,10 +5,8 @@ class SpamCardsViewCompany extends StatelessWidget {
   final String? logo;
   final String? name;
   final String? email;
-  
 
-  const SpamCardsViewCompany(
-      {Key? key, this.logo, this.name, this.email})
+  const SpamCardsViewCompany({Key? key, this.logo, this.name, this.email})
       : super(key: key);
 
   @override
@@ -30,7 +28,8 @@ class SpamCardsViewCompany extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
           border: Border.all(
-              color: const Color(0xFFD8D8D8), width: SizeProvider.instance.text(4.5)),
+              color: const Color(0xFFD8D8D8),
+              width: SizeProvider.instance.text(4.5)),
           color: Colors.white,
           boxShadow: const [
             BoxShadow(
@@ -55,8 +54,7 @@ class SpamCardsViewCompany extends StatelessWidget {
       SizedBox(
           width: SizeProvider.instance.size(9),
           height: SizeProvider.instance.size(9),
-          child: ImgProvider.companyAvatar
-      ),
+          child: ImgProvider.companyAvatar),
       Center(
         child: Text(title[0].toUpperCase(),
             style: TextStyle(

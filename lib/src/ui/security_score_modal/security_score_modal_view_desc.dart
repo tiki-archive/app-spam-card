@@ -13,10 +13,8 @@ class SecurityScoreModalViewDesc extends StatelessWidget {
   static const String _text2 = 'Security score.';
 
   final bool noScore;
-  
 
-  const SecurityScoreModalViewDesc(
-      {Key? key, this.noScore = false})
+  const SecurityScoreModalViewDesc({Key? key, this.noScore = false})
       : super(key: key);
 
   @override

@@ -4,10 +4,8 @@ import 'package:tiki_style/tiki_style.dart';
 class SpamCardsViewFrequency extends StatelessWidget {
   final String frequency;
   final String category;
-  
 
-  const SpamCardsViewFrequency(this.frequency, this.category,
-      {Key? key})
+  const SpamCardsViewFrequency(this.frequency, this.category, {Key? key})
       : super(key: key);
 
   @override
@@ -61,10 +59,12 @@ class SpamCardsViewFrequency extends StatelessWidget {
           Container(
               decoration: BoxDecoration(
                   border: Border.all(
-                      color: const Color(0xFF545454), width: SizeProvider.instance.text(1)),
+                      color: const Color(0xFF545454),
+                      width: SizeProvider.instance.text(1)),
                   borderRadius: BorderRadius.circular(50)),
               padding: EdgeInsets.symmetric(
-                  vertical: SizeProvider.instance.text(3), horizontal: SizeProvider.instance.text(8)),
+                  vertical: SizeProvider.instance.text(3),
+                  horizontal: SizeProvider.instance.text(8)),
               child: Row(
                 children: [
                   Icon(
@@ -72,7 +72,9 @@ class SpamCardsViewFrequency extends StatelessWidget {
                     color: const Color(0xFF545454),
                     size: SizeProvider.instance.text(12),
                   ),
-                  Padding(padding: EdgeInsets.only(left: SizeProvider.instance.text(4))),
+                  Padding(
+                      padding:
+                          EdgeInsets.only(left: SizeProvider.instance.text(4))),
                   Text(
                       "${category[0].toUpperCase()}${category.substring(1).toLowerCase()}",
                       style: TextStyle(
