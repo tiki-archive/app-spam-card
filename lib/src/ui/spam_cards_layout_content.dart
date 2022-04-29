@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:spam_cards/src/ui/spam_cards_view_header.dart';
 import 'package:tiki_style/tiki_style.dart';
 
 import '../model/spam_cards_model.dart';
 import '../spam_cards_service.dart';
+import '../ui/spam_cards_view_header.dart';
 import 'spam_cards_view_company.dart';
 import 'spam_cards_view_data_info_row.dart';
 import 'spam_cards_view_frequency.dart';
@@ -54,35 +54,34 @@ class SpamCardsLayoutContent extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Padding(
-                            padding:
-                                EdgeInsets.only(top: SizeProvider.instance.size(24)),
+                            padding: EdgeInsets.only(
+                                top: SizeProvider.instance.size(24)),
                             child: SpamCardsViewFrequency(
-                                cardSpamModel.frequency.toString(),
-                                cardSpamModel.category.toString(),
-                                )),
+                              cardSpamModel.frequency.toString(),
+                              cardSpamModel.category.toString(),
+                            )),
                         Padding(
                             padding: EdgeInsets.only(
                                 top: SizeProvider.instance.size(16),
                                 left: SizeProvider.instance.size(25),
                                 right: SizeProvider.instance.size(25)),
-                            child:
-                                const SpamCardsViewSeparator()),
+                            child: const SpamCardsViewSeparator()),
                         Padding(
-                            padding:
-                                EdgeInsets.only(top: SizeProvider.instance.size(8)),
+                            padding: EdgeInsets.only(
+                                top: SizeProvider.instance.size(8)),
                             child: SpamCardsViewDataInfoRow(
-                                cardSpamModel.sinceYear,
-                                cardSpamModel.totalEmails,
-                                cardSpamModel.openRate,)),
+                              cardSpamModel.sinceYear,
+                              cardSpamModel.totalEmails,
+                              cardSpamModel.openRate,
+                            )),
                         Padding(
-                            padding:
-                                EdgeInsets.only(top: SizeProvider.instance.size(20)),
+                            padding: EdgeInsets.only(
+                                top: SizeProvider.instance.size(20)),
                             child: SpamCardsViewSecurity(
-                              service: service,
-                              security: cardSpamModel.securityScore,
-                              sensitivity: cardSpamModel.sensitivityScore,
-                              hacking: cardSpamModel.hackingScore
-                            ))
+                                service: service,
+                                security: cardSpamModel.securityScore,
+                                sensitivity: cardSpamModel.sensitivityScore,
+                                hacking: cardSpamModel.hackingScore))
                       ])))
         ]);
   }

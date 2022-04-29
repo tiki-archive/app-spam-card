@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:spam_cards/src/spam_cards_service.dart';
 import 'package:tiki_style/tiki_style.dart';
 
 import '../model/security_score_modal_model.dart';
+import '../spam_cards_service.dart';
 
 class SpamCardsViewSecurity extends StatelessWidget {
   final double? security;
   final double? sensitivity;
   final double? hacking;
-  
+
   final SpamCardsService service;
 
   const SpamCardsViewSecurity(
@@ -34,7 +34,8 @@ class SpamCardsViewSecurity extends StatelessWidget {
               text: TextSpan(
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontFamily: TextProvider.familyKoara, package: 'tiki_style',
+                      fontFamily: TextProvider.familyKoara,
+                      package: 'tiki_style',
                       color: const Color(0xFF8D8D8D),
                       fontSize: SizeProvider.instance.text(15)),
                   text: "Your data is ",
@@ -49,7 +50,8 @@ class SpamCardsViewSecurity extends StatelessWidget {
               text: TextSpan(
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontFamily: TextProvider.familyKoara, package: 'tiki_style',
+                      fontFamily: TextProvider.familyKoara,
+                      package: 'tiki_style',
                       color: const Color(0xFF8D8D8D),
                       fontSize: SizeProvider.instance.text(15)),
                   text: "No data score info yet",
@@ -65,26 +67,32 @@ class SpamCardsViewSecurity extends StatelessWidget {
     for (int i = 0; i < 5; i++) {
       if (i >= starRate.floor() && i < starRate.ceil()) {
         stars.add(Padding(
-            padding: EdgeInsets.symmetric(horizontal: SizeProvider.instance.size(4)),
+            padding:
+                EdgeInsets.symmetric(horizontal: SizeProvider.instance.size(4)),
             child: Stack(children: [
               Icon(IconProvider.star,
-                  size:SizeProvider.instance.size(20),
-                  color:ColorProvider.greyThree),
+                  size: SizeProvider.instance.size(20),
+                  color: ColorProvider.greyThree),
               ClipRect(
-                child: Align(
-                    alignment: Alignment.centerLeft,
-                    widthFactor: 0.5,
-                    child: Icon(IconProvider.star, size: SizeProvider.instance.size(20), color: color))
-              ),
+                  child: Align(
+                      alignment: Alignment.centerLeft,
+                      widthFactor: 0.5,
+                      child: Icon(IconProvider.star,
+                          size: SizeProvider.instance.size(20), color: color))),
             ])));
       } else if (i >= starRate.ceil()) {
         stars.add(Padding(
-            padding: EdgeInsets.symmetric(horizontal: SizeProvider.instance.size(2)),
-            child: Icon(IconProvider.star, size: SizeProvider.instance.size(20), color: ColorProvider.greyFour)));
+            padding:
+                EdgeInsets.symmetric(horizontal: SizeProvider.instance.size(2)),
+            child: Icon(IconProvider.star,
+                size: SizeProvider.instance.size(20),
+                color: ColorProvider.greyFour)));
       } else {
         stars.add(Padding(
-            padding: EdgeInsets.symmetric(horizontal: SizeProvider.instance.size(2)),
-            child: Icon(IconProvider.star, size: SizeProvider.instance.size(20), color: color)));
+            padding:
+                EdgeInsets.symmetric(horizontal: SizeProvider.instance.size(2)),
+            child: Icon(IconProvider.star,
+                size: SizeProvider.instance.size(20), color: color)));
       }
     }
     return stars;

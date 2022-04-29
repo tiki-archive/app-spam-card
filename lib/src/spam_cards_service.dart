@@ -1,8 +1,8 @@
 import 'package:decision/decision.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:spam_cards/src/spam_cards_presenter.dart';
 
 import 'model/spam_cards_model.dart';
+import 'spam_cards_presenter.dart';
 import 'ui/spam_cards_layout.dart';
 
 class SpamCardsService extends ChangeNotifier {

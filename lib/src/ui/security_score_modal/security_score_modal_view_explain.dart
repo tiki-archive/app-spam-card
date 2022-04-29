@@ -18,10 +18,7 @@ class SecurityScoreModalViewExplain extends StatelessWidget {
   static const String _linkSensitivity = 'bigpicture.io';
   static const String _linkHacking = 'haveibeenpwned.com';
 
-  
-
-  const SecurityScoreModalViewExplain({Key? key})
-      : super(key: key);
+  const SecurityScoreModalViewExplain({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

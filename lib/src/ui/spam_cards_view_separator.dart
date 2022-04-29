@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tiki_style/tiki_style.dart';
 
 class SpamCardsViewSeparator extends StatelessWidget {
-  
-  const SpamCardsViewSeparator({Key? key})
-      : super(key: key);
+  const SpamCardsViewSeparator({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

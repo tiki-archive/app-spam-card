@@ -16,10 +16,8 @@ class SecurityScoreModalLayout extends StatelessWidget {
   static const String _title = 'Security score';
 
   final SecurityScoreModalModel model;
-  
 
-  const SecurityScoreModalLayout(this.model, {Key? key})
-      : super(key: key);
+  const SecurityScoreModalLayout(this.model, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,13 +25,15 @@ class SecurityScoreModalLayout extends StatelessWidget {
         child: SafeArea(
             child: Container(
                 height: MediaQuery.of(context).size.height * 0.85,
-                margin: EdgeInsets.symmetric(horizontal: SizeProvider.instance.size(20)),
+                margin: EdgeInsets.symmetric(
+                    horizontal: SizeProvider.instance.size(20)),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                          margin: EdgeInsets.only(top: SizeProvider.instance.size(20)),
+                          margin: EdgeInsets.only(
+                              top: SizeProvider.instance.size(20)),
                           child: Center(
                               child: Container(
                                   height: SizeProvider.instance.size(4),
@@ -41,10 +41,12 @@ class SecurityScoreModalLayout extends StatelessWidget {
                                   alignment: Alignment.center,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.all(
-                                          Radius.circular(SizeProvider.instance.size(8))),
+                                          Radius.circular(
+                                              SizeProvider.instance.size(8))),
                                       color: const Color(0xFFD8D8D8))))),
                       Container(
-                          margin: EdgeInsets.only(top: SizeProvider.instance.size(4)),
+                          margin: EdgeInsets.only(
+                              top: SizeProvider.instance.size(4)),
                           alignment: Alignment.center,
                           child: Text(
                             _title,
@@ -55,24 +57,28 @@ class SecurityScoreModalLayout extends StatelessWidget {
                             textAlign: TextAlign.center,
                           )),
                       Container(
-                          margin: EdgeInsets.only(top: SizeProvider.instance.size(25)),
+                          margin: EdgeInsets.only(
+                              top: SizeProvider.instance.size(25)),
                           alignment: Alignment.topLeft,
-                          child: SecurityScoreModalViewDesc(noScore: model.security == null)),
+                          child: SecurityScoreModalViewDesc(
+                              noScore: model.security == null)),
                       Container(
-                          margin: EdgeInsets.only(top: SizeProvider.instance.size(25)),
+                          margin: EdgeInsets.only(
+                              top: SizeProvider.instance.size(25)),
                           child: SecurityScoreModalViewScore(
                               security: model.security,
                               hacking: model.hacking,
                               sensitivity: model.sensitivity)),
                       Container(
-                          margin: EdgeInsets.only(top: SizeProvider.instance.size(25)),
+                          margin: EdgeInsets.only(
+                              top: SizeProvider.instance.size(25)),
                           child: const SecurityScoreModalViewExplain()),
                       Expanded(
                           child: Container(
                               alignment: Alignment.bottomCenter,
-                              margin: EdgeInsets.only(bottom: SizeProvider.instance.size(25)),
-                              child:
-                                  const SecurityScoreModalViewButton()))
+                              margin: EdgeInsets.only(
+                                  bottom: SizeProvider.instance.size(25)),
+                              child: const SecurityScoreModalViewButton()))
                     ]))));
   }
 }

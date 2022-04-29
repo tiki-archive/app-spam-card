@@ -8,10 +8,8 @@ import 'package:tiki_style/tiki_style.dart';
 
 class SecurityScoreModalViewButton extends StatelessWidget {
   static const String _text = 'OK, got it';
-  
 
-  const SecurityScoreModalViewButton({Key? key})
-      : super(key: key);
+  const SecurityScoreModalViewButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,8 @@ class SecurityScoreModalViewButton extends StatelessWidget {
         backgroundColor: const Color(0xFFFF521C),
         padding: EdgeInsets.symmetric(vertical: SizeProvider.instance.size(14)),
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(SizeProvider.instance.size(10)))),
+            borderRadius: BorderRadius.all(
+                Radius.circular(SizeProvider.instance.size(10)))),
       ),
       child: Container(
           alignment: Alignment.center,
@@ -30,10 +29,11 @@ class SecurityScoreModalViewButton extends StatelessWidget {
           child: Text(_text,
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: SizeProvider.instance.text(13),
-                  fontWeight: FontWeight.bold,
+                fontSize: SizeProvider.instance.text(13),
+                fontWeight: FontWeight.bold,
                 fontFamily: TextProvider.familyNunitoSans,
-                package: 'tiki_style',))),
+                package: 'tiki_style',
+              ))),
       onPressed: () => Navigator.of(context).pop(),
     );
   }

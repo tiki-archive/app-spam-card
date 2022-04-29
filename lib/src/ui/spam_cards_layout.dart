@@ -1,9 +1,9 @@
 import 'package:decision/decision.dart';
 import 'package:flutter/material.dart';
-import 'package:spam_cards/src/ui/spam_cards_layout_content.dart';
 
 import '../model/spam_cards_model.dart';
 import '../spam_cards_service.dart';
+import '../ui/spam_cards_layout_content.dart';
 
 class SpamCardsLayout implements DecisionAbstractCard {
   final SpamCardsModel cardSpamModel;

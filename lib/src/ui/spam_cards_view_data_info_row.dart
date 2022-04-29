@@ -9,10 +9,7 @@ class SpamCardsViewDataInfoRow extends StatelessWidget {
   final int? totalEmails;
   final double? opened;
 
-  
-
-  const SpamCardsViewDataInfoRow(
-      this.sinceYear, this.totalEmails, this.opened,
+  const SpamCardsViewDataInfoRow(this.sinceYear, this.totalEmails, this.opened,
       {Key? key})
       : super(key: key);
 
@@ -33,7 +30,8 @@ class SpamCardsViewDataInfoRow extends StatelessWidget {
               height: SizeProvider.instance.size(120),
               color: const Color(0xFFD8D8D8)),
           SizedBox(
-              width: SizeProvider.instance.size(150), child: SpamCardsViewOpened(opened))
+              width: SizeProvider.instance.size(150),
+              child: SpamCardsViewOpened(opened))
         ]);
   }
 }

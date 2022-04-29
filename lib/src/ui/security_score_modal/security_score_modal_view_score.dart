@@ -15,13 +15,9 @@ class SecurityScoreModalViewScore extends StatelessWidget {
   final double? hacking;
   final double? sensitivity;
   final double? security;
-  
 
   const SecurityScoreModalViewScore(
-      {Key? key,
-      this.hacking,
-      this.sensitivity,
-      this.security})
+      {Key? key, this.hacking, this.sensitivity, this.security})
       : super(key: key);
 
   @override

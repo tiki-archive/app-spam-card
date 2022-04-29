@@ -8,10 +8,8 @@ import 'package:tiki_style/tiki_style.dart';
 class SecurityScoreModalViewScoreNum extends StatelessWidget {
   final int? score;
   final String label;
-  
 
-  SecurityScoreModalViewScoreNum(
-      {Key? key, double? score, required this.label})
+  SecurityScoreModalViewScoreNum({Key? key, double? score, required this.label})
       : score = score != null ? ((1 - score) * 10).floor() : null,
         super(key: key);
 
@@ -33,7 +31,8 @@ class SecurityScoreModalViewScoreNum extends StatelessWidget {
           style: TextStyle(
               color: const Color(0xFF797979),
               fontSize: SizeProvider.instance.text(11.5),
-              fontFamily: TextProvider.familyNunitoSans, package: 'tiki_style',
+              fontFamily: TextProvider.familyNunitoSans,
+              package: 'tiki_style',
               fontWeight: FontWeight.bold))
     ]);
   }
