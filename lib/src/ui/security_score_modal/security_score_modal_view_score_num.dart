@@ -3,16 +3,15 @@
  * MIT license. See LICENSE file in root directory.
  */
 import 'package:flutter/material.dart';
-
-import '../../spam_cards_style.dart';
+import 'package:tiki_style/tiki_style.dart';
 
 class SecurityScoreModalViewScoreNum extends StatelessWidget {
   final int? score;
   final String label;
-  final SpamCardsStyle style;
+  
 
   SecurityScoreModalViewScoreNum(
-      {Key? key, double? score, required this.label, required this.style})
+      {Key? key, double? score, required this.label})
       : score = score != null ? ((1 - score) * 10).floor() : null,
         super(key: key);
 
@@ -23,18 +22,18 @@ class SecurityScoreModalViewScoreNum extends StatelessWidget {
           ? Text("$score / 10",
               style: TextStyle(
                   color: _getColor(score!),
-                  fontSize: style.text(30),
+                  fontSize: SizeProvider.instance.text(30),
                   fontWeight: FontWeight.bold))
           : Text("? / 10",
               style: TextStyle(
                   color: const Color(0xFFAFAFAF),
-                  fontSize: style.text(30),
+                  fontSize: SizeProvider.instance.text(30),
                   fontWeight: FontWeight.bold)),
       Text(label,
           style: TextStyle(
               color: const Color(0xFF797979),
-              fontSize: style.text(11.5),
-              fontFamily: style.textFont,
+              fontSize: SizeProvider.instance.text(11.5),
+              fontFamily: TextProvider.familyNunitoSans, package: 'tiki_style',
               fontWeight: FontWeight.bold))
     ]);
   }
