@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-
-import '../spam_cards_style.dart';
+import 'package:tiki_style/tiki_style.dart';
 
 class SpamCardsViewCompany extends StatelessWidget {
   final String? logo;
   final String? name;
   final String? email;
-  final SpamCardsStyle style;
 
-  const SpamCardsViewCompany(
-      {Key? key, this.logo, this.name, this.email, required this.style})
+  const SpamCardsViewCompany({Key? key, this.logo, this.name, this.email})
       : super(key: key);
 
   @override
@@ -18,7 +15,7 @@ class SpamCardsViewCompany extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         _getAvatar(logo, name, email),
-        Padding(padding: EdgeInsets.only(top: style.size(9))),
+        Padding(padding: EdgeInsets.only(top: SizeProvider.instance.size(9))),
         _getCompanyName(name, email)
       ],
     );
@@ -26,12 +23,13 @@ class SpamCardsViewCompany extends StatelessWidget {
 
   Widget _getAvatar(String? logo, String? name, String? email) {
     return Container(
-        height: style.size(9),
-        width: style.size(9),
+        height: SizeProvider.instance.size(9),
+        width: SizeProvider.instance.size(9),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
           border: Border.all(
-              color: const Color(0xFFD8D8D8), width: style.text(4.5)),
+              color: const Color(0xFFD8D8D8),
+              width: SizeProvider.instance.text(4.5)),
           color: Colors.white,
           boxShadow: const [
             BoxShadow(
@@ -44,28 +42,27 @@ class SpamCardsViewCompany extends StatelessWidget {
         child: ClipOval(
             child: logo != null
                 ? Image.network(logo,
-                    height: style.size(9),
+                    height: SizeProvider.instance.size(9),
                     errorBuilder: (context, error, stackTrace) =>
                         _staticAvatar())
                 : _staticAvatar()));
   }
 
   Widget _staticAvatar() {
-    String img = 'avatar1';
     String title = name ?? email ?? "";
     return Stack(children: [
-      Image.asset('res/images/' + img + '.png',
-          width: style.size(9),
-          height: style.size(9),
-          fit: BoxFit.fill,
-          package: 'decision_sdk'),
+      SizedBox(
+          width: SizeProvider.instance.size(9),
+          height: SizeProvider.instance.size(9),
+          child: ImgProvider.companyAvatar),
       Center(
         child: Text(title[0].toUpperCase(),
             style: TextStyle(
                 color: const Color(0xFF00133F),
-                fontSize: style.text(30),
+                fontSize: SizeProvider.instance.text(30),
                 fontWeight: FontWeight.bold,
-                fontFamily: style.textFont)),
+                fontFamily: TextProvider.familyNunitoSans,
+                package: 'tiki_style')),
       )
     ]);
   }
@@ -76,17 +73,19 @@ class SpamCardsViewCompany extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
           style: TextStyle(
-              fontSize: style.text(20),
+              fontSize: SizeProvider.instance.text(20),
               fontWeight: FontWeight.w800,
-              fontFamily: style.textFont));
+              fontFamily: TextProvider.familyNunitoSans,
+              package: 'tiki_style'));
     } else {
       return Text(email,
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
           style: TextStyle(
-              fontSize: style.text(15),
+              fontSize: SizeProvider.instance.text(15),
               fontWeight: FontWeight.w800,
-              fontFamily: style.textFont));
+              fontFamily: TextProvider.familyNunitoSans,
+              package: 'tiki_style'));
     }
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiki_style/tiki_style.dart';
 
 import '../spam_cards_service.dart';
 
@@ -17,19 +18,24 @@ class SpamCardsViewHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: EdgeInsets.only(
-            left: service.style.size(24),
-            right: service.style.size(24),
-            top: service.style.size(8)),
+            left: SizeProvider.instance.size(24),
+            right: SizeProvider.instance.size(24),
+            top: SizeProvider.instance.size(8)),
         child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
           Expanded(
               child: Row(children: [
-            Image.asset("res/images/$provider-round-logo.png",
-                width: service.style.size(20)),
-            Padding(padding: EdgeInsets.only(right: service.style.size(7))),
+            SizedBox(
+                child: FittedBox(
+                    fit: BoxFit.fill,
+                    child: ImgProvider.getByName("${provider}_round_logo.png")),
+                width: SizeProvider.instance.size(20)),
+            Padding(
+                padding: EdgeInsets.only(right: SizeProvider.instance.size(7))),
             Text("Your $provider account",
                 style: TextStyle(
-                  fontFamily: service.style.textFont,
-                  fontSize: service.style.text(12),
+                  fontFamily: TextProvider.familyNunitoSans,
+                  package: 'tiki_style',
+                  fontSize: SizeProvider.instance.text(12),
                   fontWeight: FontWeight.bold,
                   color: const Color(0xFF797979),
                 ))
@@ -40,7 +46,7 @@ class SpamCardsViewHeader extends StatelessWidget {
                   onTap: () => _share(context, shareKey, shareMessage),
                   child: Icon(Icons.share,
                       color: const Color(0xFFFF521C),
-                      size: service.style.size(24))))
+                      size: SizeProvider.instance.size(24))))
         ]));
   }
 

@@ -3,8 +3,7 @@
  * MIT license. See LICENSE file in root directory.
  */
 import 'package:flutter/material.dart';
-
-import '../../spam_cards_style.dart';
+import 'package:tiki_style/tiki_style.dart';
 
 class SecurityScoreModalViewDesc extends StatelessWidget {
   static const String _empty =
@@ -14,10 +13,8 @@ class SecurityScoreModalViewDesc extends StatelessWidget {
   static const String _text2 = 'Security score.';
 
   final bool noScore;
-  final SpamCardsStyle style;
 
-  const SecurityScoreModalViewDesc(
-      {Key? key, this.noScore = false, required this.style})
+  const SecurityScoreModalViewDesc({Key? key, this.noScore = false})
       : super(key: key);
 
   @override
@@ -27,13 +24,14 @@ class SecurityScoreModalViewDesc extends StatelessWidget {
       children: [
         if (noScore)
           Container(
-              margin: EdgeInsets.only(bottom: style.size(25)),
+              margin: EdgeInsets.only(bottom: SizeProvider.instance.size(25)),
               child: Text(_empty,
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       color: const Color(0xFFC73000),
-                      fontFamily: style.textFont,
-                      fontSize: style.text(11.5),
+                      fontFamily: TextProvider.familyNunitoSans,
+                      package: 'tiki_style',
+                      fontSize: SizeProvider.instance.text(11.5),
                       fontWeight: FontWeight.w600))),
         RichText(
             textAlign: TextAlign.left,
@@ -41,16 +39,18 @@ class SecurityScoreModalViewDesc extends StatelessWidget {
                 text: _text1,
                 style: TextStyle(
                     color: const Color(0xFF00133F),
-                    fontFamily: style.textFont,
-                    fontSize: style.text(11.5),
+                    fontFamily: TextProvider.familyNunitoSans,
+                    package: 'tiki_style',
+                    fontSize: SizeProvider.instance.text(11.5),
                     fontWeight: FontWeight.w600),
                 children: [
                   TextSpan(
                       text: _text2,
                       style: TextStyle(
                           color: const Color(0xFF00133F),
-                          fontFamily: style.textFont,
-                          fontSize: style.text(11.5),
+                          fontFamily: TextProvider.familyNunitoSans,
+                          package: 'tiki_style',
+                          fontSize: SizeProvider.instance.text(11.5),
                           fontWeight: FontWeight.w800))
                 ])),
       ],

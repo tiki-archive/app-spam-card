@@ -1,15 +1,13 @@
-import 'package:decision_sdk/decision.dart';
-import 'package:spam_cards/src/spam_cards_service.dart';
+import 'package:decision/decision.dart';
+import 'src/spam_cards_service.dart';
 
-import 'src/spam_cards_style.dart';
-
-class SpamCards {
+class TikiSpamCards {
   final SpamCardsService _service;
 
-  SpamCards({SpamCardsStyle? style, DecisionSdk? decisionSdk})
+  TikiSpamCards({Decision? decisionSdk})
       : _service = SpamCardsService(
-            decisionSdk: decisionSdk ?? DecisionSdk(),
-            style: style ?? SpamCardsStyle());
+          decision: decisionSdk ?? Decision(),
+        );
 
   void addCards({
     Function(String senderEmail)? onUnsubscribe,

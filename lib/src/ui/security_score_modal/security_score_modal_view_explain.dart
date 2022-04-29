@@ -5,9 +5,8 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:tiki_style/tiki_style.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../../spam_cards_style.dart';
 
 class SecurityScoreModalViewExplain extends StatelessWidget {
   static const String _textHacking =
@@ -19,24 +18,21 @@ class SecurityScoreModalViewExplain extends StatelessWidget {
   static const String _linkSensitivity = 'bigpicture.io';
   static const String _linkHacking = 'haveibeenpwned.com';
 
-  final SpamCardsStyle style;
-
-  const SecurityScoreModalViewExplain({Key? key, required this.style})
-      : super(key: key);
+  const SecurityScoreModalViewExplain({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       _label(_labelSensitivity),
       Container(
-          margin: EdgeInsets.only(top: style.size(4)),
+          margin: EdgeInsets.only(top: SizeProvider.instance.size(4)),
           child: _text(
               text: _textSensitivity, link: _linkSensitivity, close: '.')),
       Container(
-          margin: EdgeInsets.only(top: style.size(8)),
+          margin: EdgeInsets.only(top: SizeProvider.instance.size(8)),
           child: _label(_labelHacking)),
       Container(
-          margin: EdgeInsets.only(top: style.size(4)),
+          margin: EdgeInsets.only(top: SizeProvider.instance.size(4)),
           child: _text(text: _textHacking, link: _linkHacking, close: ')')),
     ]);
   }
@@ -55,8 +51,9 @@ class SecurityScoreModalViewExplain extends StatelessWidget {
             text: text,
             style: TextStyle(
                 color: const Color(0xFF00133F),
-                fontFamily: style.textFont,
-                fontSize: style.text(11.5),
+                fontFamily: TextProvider.familyNunitoSans,
+                package: 'tiki_style',
+                fontSize: SizeProvider.instance.text(11.5),
                 fontWeight: FontWeight.w600),
             children: [
           TextSpan(
@@ -65,20 +62,22 @@ class SecurityScoreModalViewExplain extends StatelessWidget {
                 ..onTap = () async => _launchURL('https://' + link),
               style: TextStyle(
                   color: const Color(0xFFFF521C),
-                  fontFamily: style.textFont,
-                  fontSize: style.text(11.5),
+                  fontFamily: TextProvider.familyNunitoSans,
+                  package: 'tiki_style',
+                  fontSize: SizeProvider.instance.text(11.5),
                   fontWeight: FontWeight.w600)),
           TextSpan(
               text: close,
               style: TextStyle(
                   color: const Color(0xFF00133F),
-                  fontFamily: style.textFont,
-                  fontSize: style.text(11.5),
+                  fontFamily: TextProvider.familyNunitoSans,
+                  package: 'tiki_style',
+                  fontSize: SizeProvider.instance.text(11.5),
                   fontWeight: FontWeight.w600))
         ]));
   }
 
   void _launchURL(String url) async {
-    if (!await launch(url)) throw 'Could not launch $url';
+    if (!await launchUrl(Uri.parse(url))) throw 'Could not launch $url';
   }
 }

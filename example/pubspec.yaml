@@ -17,10 +17,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  decision_sdk:
-    path: ../../decision_sdk
 
-  spam_cards:
+  tiki_spam_cards:
     # When depending on this package from a real application you should use:
     #   spam_cards: ^x.y.z
     # See https://dart.dev/tools/pub/dependencies#version-constraints

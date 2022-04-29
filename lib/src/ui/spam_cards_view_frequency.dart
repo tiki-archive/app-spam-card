@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-
-import '../spam_cards_style.dart';
+import 'package:tiki_style/tiki_style.dart';
 
 class SpamCardsViewFrequency extends StatelessWidget {
   final String frequency;
   final String category;
-  final SpamCardsStyle style;
 
-  const SpamCardsViewFrequency(this.frequency, this.category, this.style,
-      {Key? key})
+  const SpamCardsViewFrequency(this.frequency, this.category, {Key? key})
       : super(key: key);
 
   @override
@@ -18,17 +15,18 @@ class SpamCardsViewFrequency extends StatelessWidget {
       children: [
         Text("They send you emails",
             style: TextStyle(
-                fontSize: style.size(9),
+                fontSize: SizeProvider.instance.size(9),
                 fontWeight: FontWeight.w600,
                 color: const Color(0xFF00133F))),
-        Padding(padding: EdgeInsets.only(top: style.size(6))),
+        Padding(padding: EdgeInsets.only(top: SizeProvider.instance.size(6))),
         Text('${frequency[0].toUpperCase()}${frequency.substring(1)}',
             style: TextStyle(
-                fontFamily: style.bigTxtFontFamily,
-                fontSize: style.text(26),
+                fontFamily: TextProvider.familyKoara,
+                package: 'tiki_style',
+                fontSize: SizeProvider.instance.text(26),
                 fontWeight: FontWeight.w800,
                 color: _getTextColor(frequency))),
-        Padding(padding: EdgeInsets.only(top: style.size(6))),
+        Padding(padding: EdgeInsets.only(top: SizeProvider.instance.size(6))),
         _getCategory(category)
       ],
     );
@@ -52,31 +50,35 @@ class SpamCardsViewFrequency extends StatelessWidget {
         children: [
           Text('in',
               style: TextStyle(
-                  fontSize: style.text(10),
+                  fontSize: SizeProvider.instance.text(10),
                   fontWeight: FontWeight.w600,
                   color: const Color(0xFF00133F))),
           Padding(
-            padding: EdgeInsets.only(left: style.text(3)),
+            padding: EdgeInsets.only(left: SizeProvider.instance.text(3)),
           ),
           Container(
               decoration: BoxDecoration(
                   border: Border.all(
-                      color: const Color(0xFF545454), width: style.text(1)),
+                      color: const Color(0xFF545454),
+                      width: SizeProvider.instance.text(1)),
                   borderRadius: BorderRadius.circular(50)),
               padding: EdgeInsets.symmetric(
-                  vertical: style.text(3), horizontal: style.text(8)),
+                  vertical: SizeProvider.instance.text(3),
+                  horizontal: SizeProvider.instance.text(8)),
               child: Row(
                 children: [
                   Icon(
                     Icons.sell,
                     color: const Color(0xFF545454),
-                    size: style.text(12),
+                    size: SizeProvider.instance.text(12),
                   ),
-                  Padding(padding: EdgeInsets.only(left: style.text(4))),
+                  Padding(
+                      padding:
+                          EdgeInsets.only(left: SizeProvider.instance.text(4))),
                   Text(
                       "${category[0].toUpperCase()}${category.substring(1).toLowerCase()}",
                       style: TextStyle(
-                          fontSize: style.text(10),
+                          fontSize: SizeProvider.instance.text(10),
                           color: const Color(0xFF545454),
                           fontWeight: FontWeight.w800))
                 ],

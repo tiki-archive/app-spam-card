@@ -4,15 +4,12 @@
  */
 
 import 'package:flutter/material.dart';
-
-import '../../spam_cards_style.dart';
+import 'package:tiki_style/tiki_style.dart';
 
 class SecurityScoreModalViewButton extends StatelessWidget {
   static const String _text = 'OK, got it';
-  final SpamCardsStyle style;
 
-  const SecurityScoreModalViewButton({Key? key, required this.style})
-      : super(key: key);
+  const SecurityScoreModalViewButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,20 +17,23 @@ class SecurityScoreModalViewButton extends StatelessWidget {
       style: TextButton.styleFrom(
         primary: Colors.white,
         backgroundColor: const Color(0xFFFF521C),
-        padding: EdgeInsets.symmetric(vertical: style.size(14)),
+        padding: EdgeInsets.symmetric(vertical: SizeProvider.instance.size(14)),
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(style.size(10)))),
+            borderRadius: BorderRadius.all(
+                Radius.circular(SizeProvider.instance.size(10)))),
       ),
       child: Container(
           alignment: Alignment.center,
           width: double.infinity,
-          height: style.text(26),
+          height: SizeProvider.instance.text(26),
           child: Text(_text,
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: style.text(13),
-                  fontWeight: FontWeight.bold,
-                  fontFamily: style.textFont))),
+                fontSize: SizeProvider.instance.text(13),
+                fontWeight: FontWeight.bold,
+                fontFamily: TextProvider.familyNunitoSans,
+                package: 'tiki_style',
+              ))),
       onPressed: () => Navigator.of(context).pop(),
     );
   }

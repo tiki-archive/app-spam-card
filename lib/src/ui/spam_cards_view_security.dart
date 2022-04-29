@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:spam_cards/src/spam_cards_service.dart';
+import 'package:tiki_style/tiki_style.dart';
 
 import '../model/security_score_modal_model.dart';
-import '../spam_cards_style.dart';
+import '../spam_cards_service.dart';
 
 class SpamCardsViewSecurity extends StatelessWidget {
   final double? security;
   final double? sensitivity;
   final double? hacking;
-  final SpamCardsStyle style;
+
   final SpamCardsService service;
 
   const SpamCardsViewSecurity(
@@ -16,8 +16,7 @@ class SpamCardsViewSecurity extends StatelessWidget {
       double? security,
       required this.service,
       this.sensitivity,
-      this.hacking,
-      required this.style})
+      this.hacking})
       : security = security != null ? (1 - security) * 5 : null,
         super(key: key);
 
@@ -28,16 +27,17 @@ class SpamCardsViewSecurity extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: _getStars(service)),
       Padding(
-        padding: EdgeInsets.only(top: service.style.size(4)),
+        padding: EdgeInsets.only(top: SizeProvider.instance.size(4)),
       ),
       security != null
           ? RichText(
               text: TextSpan(
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontFamily: style.bigTxtFontFamily,
+                      fontFamily: TextProvider.familyKoara,
+                      package: 'tiki_style',
                       color: const Color(0xFF8D8D8D),
-                      fontSize: style.text(15)),
+                      fontSize: SizeProvider.instance.text(15)),
                   text: "Your data is ",
                   children: [
                     TextSpan(
@@ -50,9 +50,10 @@ class SpamCardsViewSecurity extends StatelessWidget {
               text: TextSpan(
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontFamily: style.bigTxtFontFamily,
+                      fontFamily: TextProvider.familyKoara,
+                      package: 'tiki_style',
                       color: const Color(0xFF8D8D8D),
-                      fontSize: style.text(15)),
+                      fontSize: SizeProvider.instance.text(15)),
                   text: "No data score info yet",
                   children: [_getInfoIcon(context, service)]),
             ),
@@ -66,44 +67,48 @@ class SpamCardsViewSecurity extends StatelessWidget {
     for (int i = 0; i < 5; i++) {
       if (i >= starRate.floor() && i < starRate.ceil()) {
         stars.add(Padding(
-            padding: EdgeInsets.symmetric(horizontal: service.style.size(4)),
+            padding:
+                EdgeInsets.symmetric(horizontal: SizeProvider.instance.size(4)),
             child: Stack(children: [
-              Image.asset("res/images/star-grey.png",
-                  width: service.style.size(20)),
+              Icon(IconProvider.star,
+                  size: SizeProvider.instance.size(20),
+                  color: ColorProvider.greyThree),
               ClipRect(
-                child: Align(
-                    alignment: Alignment.centerLeft,
-                    widthFactor: 0.5,
-                    child: Image.asset("res/images/star-$color.png",
-                        package: 'decision', width: service.style.size(20))),
-              ),
+                  child: Align(
+                      alignment: Alignment.centerLeft,
+                      widthFactor: 0.5,
+                      child: Icon(IconProvider.star,
+                          size: SizeProvider.instance.size(20), color: color))),
             ])));
       } else if (i >= starRate.ceil()) {
         stars.add(Padding(
-            padding: EdgeInsets.symmetric(horizontal: service.style.size(2)),
-            child: Image.asset("res/images/star-grey.png",
-                package: 'decision', width: service.style.size(20))));
+            padding:
+                EdgeInsets.symmetric(horizontal: SizeProvider.instance.size(2)),
+            child: Icon(IconProvider.star,
+                size: SizeProvider.instance.size(20),
+                color: ColorProvider.greyFour)));
       } else {
         stars.add(Padding(
-            padding: EdgeInsets.symmetric(horizontal: service.style.size(2)),
-            child: Image.asset("res/images/star-$color.png",
-                package: 'decision', width: service.style.size(20))));
+            padding:
+                EdgeInsets.symmetric(horizontal: SizeProvider.instance.size(2)),
+            child: Icon(IconProvider.star,
+                size: SizeProvider.instance.size(20), color: color)));
       }
     }
     return stars;
   }
 
-  String _getColor() {
+  Color _getColor() {
     if (security == null) {
-      return "grey";
+      return ColorProvider.greyFour;
     } else {
       var starRate = security ?? 0;
       if (starRate < 2) {
-        return "red";
+        return ColorProvider.red;
       } else if (starRate < 4) {
-        return "yellow";
+        return ColorProvider.yellow;
       } else {
-        return "green";
+        return ColorProvider.green;
       }
     }
   }
@@ -137,13 +142,13 @@ class SpamCardsViewSecurity extends StatelessWidget {
     return WidgetSpan(
         child: Padding(
             padding: EdgeInsets.only(
-              left: service.style.size(13),
+              left: SizeProvider.instance.size(13),
             ),
             child: GestureDetector(
                 child: Icon(
                   Icons.info_outline_rounded,
                   color: const Color(0xFF8D8D8D),
-                  size: style.text(17),
+                  size: SizeProvider.instance.text(17),
                 ),
                 onTap: () => service.presenter.showModal(
                     context,
