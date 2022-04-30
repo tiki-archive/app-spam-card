@@ -13,8 +13,6 @@ dependencies:
   flutter:
     sdk: flutter
   decision: ^0.0.4
-  google_provider: ^0.0.9
-  microsoft_provider: ^0.0.8
   tiki_style: ^0.0.10
   url_launcher: ^6.1.0
 
