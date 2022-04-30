@@ -1,3 +1,7 @@
+## 0.0.4
+
+* removed provider dependencies
+
 ## 0.0.3
 
 * add tiki_style

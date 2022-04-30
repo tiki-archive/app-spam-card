@@ -1,6 +1,6 @@
 name: tiki_spam_cards
 description: Spam Cards SDK for Tiki.
-version: 0.0.3
+version: 0.0.4
 homepage: https://mytiki.com
 repository: https://github.com/tiki/spam_cards
 issue_tracker: https://github.com/tiki/spam_cards/issues
@@ -13,8 +13,6 @@ dependencies:
   flutter:
     sdk: flutter
   decision: ^0.0.4
-  google_provider: ^0.0.9
-  microsoft_provider: ^0.0.8
   tiki_style: ^0.0.10
   url_launcher: ^6.1.0
 
