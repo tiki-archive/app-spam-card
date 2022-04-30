@@ -1,5 +1,5 @@
-import 'package:decision/decision.dart';
 import 'package:flutter/material.dart';
+import 'package:tiki_decision/tiki_decision.dart';
 
 import '../model/spam_cards_model.dart';
 import '../spam_cards_service.dart';

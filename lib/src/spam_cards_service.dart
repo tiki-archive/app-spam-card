@@ -1,12 +1,12 @@
-import 'package:decision/decision.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
+import 'package:tiki_decision/tiki_decision.dart';
 
 import 'model/spam_cards_model.dart';
 import 'spam_cards_presenter.dart';
 import 'ui/spam_cards_layout.dart';
 
 class SpamCardsService extends ChangeNotifier {
-  final Decision decision;
+  final TikiDecision decision;
   late final SpamCardsPresenter presenter;
 
   SpamCardsService({required this.decision}) {

@@ -1,13 +1,13 @@
-import 'package:decision/decision.dart';
+import 'package:tiki_decision/tiki_decision.dart';
 
 import 'src/spam_cards_service.dart';
 
 class TikiSpamCards {
   final SpamCardsService _service;
 
-  TikiSpamCards({Decision? decision})
+  TikiSpamCards({TikiDecision? decision})
       : _service = SpamCardsService(
-          decision: decision ?? Decision(),
+          decision: decision ?? TikiDecision(),
         );
 
   void addCards({

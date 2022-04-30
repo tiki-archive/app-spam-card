@@ -64,13 +64,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
-  decision:
-    dependency: transitive
-    description:
-      name: decision
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.4"
   fake_async:
     dependency: transitive
     description:
@@ -245,6 +238,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.8"
+  tiki_decision:
+    dependency: transitive
+    description:
+      name: tiki_decision
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.5"
   tiki_kv:
     dependency: transitive
     description:
@@ -258,7 +258,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.3"
+    version: "0.0.6"
   tiki_style:
     dependency: transitive
     description:
