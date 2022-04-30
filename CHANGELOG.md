@@ -1,3 +1,7 @@
+## 0.0.5
+
+* moved from decision -> tiki_decision
+
 ## 0.0.4
 
 * removed provider dependencies
