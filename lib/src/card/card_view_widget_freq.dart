@@ -1,11 +1,16 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
 import 'package:flutter/material.dart';
 import 'package:tiki_style/tiki_style.dart';
 
-class SpamCardsViewFrequency extends StatelessWidget {
+class CardViewWidgetFreq extends StatelessWidget {
   final String frequency;
   final String category;
 
-  const SpamCardsViewFrequency(this.frequency, this.category, {Key? key})
+  const CardViewWidgetFreq(this.frequency, this.category, {Key? key})
       : super(key: key);
 
   @override

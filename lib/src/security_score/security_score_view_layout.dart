@@ -4,20 +4,20 @@
  */
 
 import 'package:flutter/material.dart';
+import 'security_score_model.dart';
 import 'package:tiki_style/tiki_style.dart';
 
-import '../../model/security_score_modal_model.dart';
-import 'security_score_modal_view_button.dart';
-import 'security_score_modal_view_desc.dart';
-import 'security_score_modal_view_explain.dart';
-import 'security_score_modal_view_score.dart';
+import 'security_score_view_widget_button.dart';
+import 'security_score_view_widget_desc.dart';
+import 'security_score_view_widget_explain.dart';
+import 'security_score_view_widget_score.dart';
 
-class SecurityScoreModalLayout extends StatelessWidget {
+class SecurityScoreViewLayout extends StatelessWidget {
   static const String _title = 'Security score';
 
-  final SecurityScoreModalModel model;
+  final SecurityScoreModel model;
 
-  const SecurityScoreModalLayout(this.model, {Key? key}) : super(key: key);
+  const SecurityScoreViewLayout(this.model, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -60,25 +60,25 @@ class SecurityScoreModalLayout extends StatelessWidget {
                           margin: EdgeInsets.only(
                               top: SizeProvider.instance.size(25)),
                           alignment: Alignment.topLeft,
-                          child: SecurityScoreModalViewDesc(
+                          child: SecurityScoreViewWidgetDesc(
                               noScore: model.security == null)),
                       Container(
                           margin: EdgeInsets.only(
                               top: SizeProvider.instance.size(25)),
-                          child: SecurityScoreModalViewScore(
+                          child: SecurityScoreViewWidgetScore(
                               security: model.security,
                               hacking: model.hacking,
                               sensitivity: model.sensitivity)),
                       Container(
                           margin: EdgeInsets.only(
                               top: SizeProvider.instance.size(25)),
-                          child: const SecurityScoreModalViewExplain()),
+                          child: const SecurityScoreViewWidgetExplain()),
                       Expanded(
                           child: Container(
                               alignment: Alignment.bottomCenter,
                               margin: EdgeInsets.only(
                                   bottom: SizeProvider.instance.size(25)),
-                              child: const SecurityScoreModalViewButton()))
+                              child: const SecurityScoreViewWidgetButton()))
                     ]))));
   }
 }

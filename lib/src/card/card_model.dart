@@ -1,4 +1,9 @@
-class SpamCardsModel {
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
+class CardModel {
   String? logoUrl;
   String? companyName;
   String? category;
@@ -10,12 +15,12 @@ class SpamCardsModel {
   double? sensitivityScore;
   double? hackingScore;
   String? senderEmail;
-  String provider;
+  String strategy;
   Function? onUnsubscribe;
   Function? onKeep;
 
-  SpamCardsModel(
-      {required this.provider,
+  CardModel(
+      {required this.strategy,
       this.logoUrl,
       this.category,
       required this.companyName,
@@ -33,7 +38,7 @@ class SpamCardsModel {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is SpamCardsModel &&
+      other is CardModel &&
           runtimeType == other.runtimeType &&
           logoUrl == other.logoUrl &&
           companyName == other.companyName &&
@@ -45,7 +50,10 @@ class SpamCardsModel {
           securityScore == other.securityScore &&
           sensitivityScore == other.sensitivityScore &&
           hackingScore == other.hackingScore &&
-          senderEmail == other.senderEmail;
+          senderEmail == other.senderEmail &&
+          strategy == other.strategy &&
+          onUnsubscribe == other.onUnsubscribe &&
+          onKeep == other.onKeep;
 
   @override
   int get hashCode =>
@@ -59,26 +67,8 @@ class SpamCardsModel {
       securityScore.hashCode ^
       sensitivityScore.hashCode ^
       hackingScore.hashCode ^
-      senderEmail.hashCode;
-
-  SpamCardsModel.fromMessageList(
-      {required List messages,
-      required String calculatedFrequency,
-      required double calculatedOpenRate,
-      required this.provider,
-      this.onKeep,
-      this.onUnsubscribe})
-      : logoUrl = messages[0].sender?.company?.logo,
-        category = messages[0].sender?.category,
-        companyName = messages[0].sender?.name,
-        frequency = calculatedFrequency,
-        openRate = calculatedOpenRate,
-        securityScore = messages[0].sender?.company?.securityScore,
-        sensitivityScore = messages[0].sender?.company?.sensitivityScore,
-        hackingScore = messages[0].sender?.company?.breachScore,
-        senderEmail = messages[0].sender?.email,
-        totalEmails = messages.length,
-        sinceYear = messages[0].sender?.emailSince?.year.toString();
+      senderEmail.hashCode ^
+      strategy.hashCode ^
+      onUnsubscribe.hashCode ^
+      onKeep.hashCode;
 }
-
-enum SpamCardsFrequency { daily, weekly, monthly }

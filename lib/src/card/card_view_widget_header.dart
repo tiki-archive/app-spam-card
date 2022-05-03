@@ -1,16 +1,17 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
 import 'package:flutter/material.dart';
 import 'package:tiki_style/tiki_style.dart';
 
-import '../spam_cards_service.dart';
-
-class SpamCardsViewHeader extends StatelessWidget {
+class CardViewWidgetHeader extends StatelessWidget {
   final GlobalKey shareKey;
   final String shareMessage;
   final String provider;
-  final SpamCardsService service;
 
-  const SpamCardsViewHeader(
-      this.service, this.shareKey, this.shareMessage, this.provider,
+  const CardViewWidgetHeader(this.shareKey, this.shareMessage, this.provider,
       {Key? key})
       : super(key: key);
 

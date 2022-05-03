@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.spam_cards_example">
+    package="com.example.tiki_spam_card_example">
    <application
-        android:label="spam_cards_example"
+        android:label="tiki_spam_card_example"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

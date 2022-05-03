@@ -5,11 +5,12 @@
 import 'package:flutter/material.dart';
 import 'package:tiki_style/tiki_style.dart';
 
-class SecurityScoreModalViewScoreNum extends StatelessWidget {
+class SecurityScoreViewWidgetScoreNum extends StatelessWidget {
   final int? score;
   final String label;
 
-  SecurityScoreModalViewScoreNum({Key? key, double? score, required this.label})
+  SecurityScoreViewWidgetScoreNum(
+      {Key? key, double? score, required this.label})
       : score = score != null ? ((1 - score) * 10).floor() : null,
         super(key: key);
 

@@ -5,9 +5,9 @@
 import 'package:flutter/material.dart';
 import 'package:tiki_style/tiki_style.dart';
 
-import 'security_score_modal_view_score_num.dart';
+import 'security_score_view_widget_score_num.dart';
 
-class SecurityScoreModalViewScore extends StatelessWidget {
+class SecurityScoreViewWidgetScore extends StatelessWidget {
   static const String _leadIn =
       'The security score is determined by two ratings:';
   static const String _labelSensitivity = 'SENSITIVITY';
@@ -16,7 +16,7 @@ class SecurityScoreModalViewScore extends StatelessWidget {
   final double? sensitivity;
   final double? security;
 
-  const SecurityScoreModalViewScore(
+  const SecurityScoreViewWidgetScore(
       {Key? key, this.hacking, this.sensitivity, this.security})
       : super(key: key);
 
@@ -37,7 +37,7 @@ class SecurityScoreModalViewScore extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SecurityScoreModalViewScoreNum(
+                  SecurityScoreViewWidgetScoreNum(
                     score: sensitivity,
                     label: _labelSensitivity,
                   ),
@@ -46,7 +46,7 @@ class SecurityScoreModalViewScore extends StatelessWidget {
                     height: SizeProvider.instance.size(65),
                     color: const Color(0xFFAFAFAF),
                   ),
-                  SecurityScoreModalViewScoreNum(
+                  SecurityScoreViewWidgetScoreNum(
                     score: hacking,
                     label: _labelHacking,
                   ),

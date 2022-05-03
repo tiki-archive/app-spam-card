@@ -1,31 +1,28 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
 import 'package:flutter/material.dart';
 import 'package:tiki_style/tiki_style.dart';
 
-import '../model/security_score_modal_model.dart';
-import '../spam_cards_service.dart';
+import 'card_controller.dart';
 
-class SpamCardsViewSecurity extends StatelessWidget {
+class CardViewWidgetSecurity extends StatelessWidget {
+  final CardController controller;
   final double? security;
   final double? sensitivity;
   final double? hacking;
 
-  final SpamCardsService service;
-
-  const SpamCardsViewSecurity(
-      {Key? key,
-      double? security,
-      required this.service,
-      this.sensitivity,
-      this.hacking})
+  const CardViewWidgetSecurity(this.controller,
+      {Key? key, double? security, this.sensitivity, this.hacking})
       : security = security != null ? (1 - security) * 5 : null,
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: _getStars(service)),
+      Row(mainAxisAlignment: MainAxisAlignment.center, children: _getStars()),
       Padding(
         padding: EdgeInsets.only(top: SizeProvider.instance.size(4)),
       ),
@@ -43,7 +40,7 @@ class SpamCardsViewSecurity extends StatelessWidget {
                     TextSpan(
                         text: _getSecurityText(security ?? 0),
                         style: TextStyle(color: _getColorForText())),
-                    _getInfoIcon(context, service)
+                    _getInfoIcon(context)
                   ]),
             )
           : RichText(
@@ -55,12 +52,12 @@ class SpamCardsViewSecurity extends StatelessWidget {
                       color: const Color(0xFF8D8D8D),
                       fontSize: SizeProvider.instance.text(15)),
                   text: "No data score info yet",
-                  children: [_getInfoIcon(context, service)]),
+                  children: [_getInfoIcon(context)]),
             ),
     ]);
   }
 
-  List<Widget> _getStars(SpamCardsService service) {
+  List<Widget> _getStars() {
     var color = _getColor();
     var starRate = security ?? 0;
     var stars = <Widget>[];
@@ -138,7 +135,7 @@ class SpamCardsViewSecurity extends StatelessWidget {
     }
   }
 
-  _getInfoIcon(BuildContext context, SpamCardsService service) {
+  _getInfoIcon(BuildContext context) {
     return WidgetSpan(
         child: Padding(
             padding: EdgeInsets.only(
@@ -150,11 +147,6 @@ class SpamCardsViewSecurity extends StatelessWidget {
                   color: const Color(0xFF8D8D8D),
                   size: SizeProvider.instance.text(17),
                 ),
-                onTap: () => service.presenter.showModal(
-                    context,
-                    SecurityScoreModalModel(
-                        hacking: hacking,
-                        sensitivity: sensitivity,
-                        security: security)))));
+                onTap: () => controller.openSecurityScore(context))));
   }
 }

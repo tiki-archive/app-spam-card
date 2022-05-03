@@ -1,4 +1,4 @@
-# spam_cards
+# tiki_spam_card
 
 A new Flutter project.
 

@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:tiki_style/tiki_style.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class SecurityScoreModalViewExplain extends StatelessWidget {
+class SecurityScoreViewWidgetExplain extends StatelessWidget {
   static const String _textHacking =
       'A rating based on known recent security breaches/hacks (from ';
   static const String _textSensitivity =
@@ -18,7 +18,7 @@ class SecurityScoreModalViewExplain extends StatelessWidget {
   static const String _linkSensitivity = 'bigpicture.io';
   static const String _linkHacking = 'haveibeenpwned.com';
 
-  const SecurityScoreModalViewExplain({Key? key}) : super(key: key);
+  const SecurityScoreViewWidgetExplain({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
