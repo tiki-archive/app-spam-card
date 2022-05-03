@@ -15,7 +15,7 @@ class TikiSpamCard {
 
   const TikiSpamCard(this._decision);
 
-  void upsert(List<CardModel> cards) => _decision.upsert(Map.fromEntries(cards
+  void upsert(Set<CardModel> cards) => _decision.upsert(Map.fromEntries(cards
       .map((e) => MapEntry('${e.strategy}.${e.senderEmail}', CardService(e)))));
 
   String calculateFrequency(List<DateTime> received) {

@@ -1,3 +1,9 @@
+## 0.0.6
+
+* code refactor to use slices 
+* move analytics calcs up to api level
+* add becomes upsert and takes in a set of card models
+
 ## 0.0.5
 
 * moved from decision -> tiki_decision
