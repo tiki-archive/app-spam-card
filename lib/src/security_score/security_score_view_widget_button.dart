@@ -6,10 +6,10 @@
 import 'package:flutter/material.dart';
 import 'package:tiki_style/tiki_style.dart';
 
-class SecurityScoreModalViewButton extends StatelessWidget {
+class SecurityScoreViewWidgetButton extends StatelessWidget {
   static const String _text = 'OK, got it';
 
-  const SecurityScoreModalViewButton({Key? key}) : super(key: key);
+  const SecurityScoreViewWidgetButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

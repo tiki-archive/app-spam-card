@@ -6,10 +6,10 @@
 import 'package:flutter/material.dart';
 import 'package:tiki_style/tiki_style.dart';
 
-class SpamCardsViewOpened extends StatelessWidget {
+class CardViewWidgetOpened extends StatelessWidget {
   final double? percent;
 
-  const SpamCardsViewOpened(this.percent, {Key? key}) : super(key: key);
+  const CardViewWidgetOpened(this.percent, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

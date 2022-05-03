@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:tiki_style/tiki_style.dart';
 
-class SecurityScoreModalViewDesc extends StatelessWidget {
+class SecurityScoreViewWidgetDesc extends StatelessWidget {
   static const String _empty =
       'We’re sorry that we cannot provide you with a\nsecurity score for this email list right now.\nFind out more info about security score below.';
   static const String _text1 =
@@ -14,7 +14,7 @@ class SecurityScoreModalViewDesc extends StatelessWidget {
 
   final bool noScore;
 
-  const SecurityScoreModalViewDesc({Key? key, this.noScore = false})
+  const SecurityScoreViewWidgetDesc({Key? key, this.noScore = false})
       : super(key: key);
 
   @override

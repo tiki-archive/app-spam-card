@@ -1,4 +1,4 @@
-name: spam_cards_example
+name: spam_card_example
 description: Demonstrates how to use the spam_cards plugin.
 
 # The following line prevents the package from being accidentally published to
@@ -18,7 +18,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  tiki_spam_cards:
+  tiki_spam_card:
     # When depending on this package from a real application you should use:
     #   spam_cards: ^x.y.z
     # See https://dart.dev/tools/pub/dependencies#version-constraints

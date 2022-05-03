@@ -3,10 +3,10 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-class SecurityScoreModalModel {
+class SecurityScoreModel {
   double? security;
   double? hacking;
   double? sensitivity;
 
-  SecurityScoreModalModel({this.security, this.hacking, this.sensitivity});
+  SecurityScoreModel({this.security, this.hacking, this.sensitivity});
 }

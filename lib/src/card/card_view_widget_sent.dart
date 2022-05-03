@@ -6,11 +6,11 @@
 import 'package:flutter/material.dart';
 import 'package:tiki_style/tiki_style.dart';
 
-class SpamCardsViewSent extends StatelessWidget {
+class CardViewWidgetSent extends StatelessWidget {
   final int? totalEmails;
   final String? sinceYear;
 
-  const SpamCardsViewSent(this.totalEmails, this.sinceYear, {Key? key})
+  const CardViewWidgetSent(this.totalEmails, this.sinceYear, {Key? key})
       : super(key: key);
 
   @override

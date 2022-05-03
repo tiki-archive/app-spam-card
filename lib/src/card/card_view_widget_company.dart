@@ -1,12 +1,17 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
 import 'package:flutter/material.dart';
 import 'package:tiki_style/tiki_style.dart';
 
-class SpamCardsViewCompany extends StatelessWidget {
+class CardViewWidgetCompany extends StatelessWidget {
   final String? logo;
   final String? name;
   final String? email;
 
-  const SpamCardsViewCompany({Key? key, this.logo, this.name, this.email})
+  const CardViewWidgetCompany({Key? key, this.logo, this.name, this.email})
       : super(key: key);
 
   @override
