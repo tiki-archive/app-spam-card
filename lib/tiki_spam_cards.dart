@@ -10,10 +10,10 @@ import 'src/card/card_service.dart';
 
 export 'src/card/card_model.dart';
 
-class TikiSpamCard {
+class TikiSpamCards {
   final TikiDecision _decision;
 
-  const TikiSpamCard(this._decision);
+  const TikiSpamCards(this._decision);
 
   void upsert(Set<CardModel> cards) => _decision.upsert(Map.fromEntries(cards
       .map((e) => MapEntry('${e.strategy}.${e.senderEmail}', CardService(e)))));

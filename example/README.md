@@ -1,6 +1,6 @@
-# tiki_spam_card_example
+# tiki_spam_cards_example
 
-Demonstrates how to use the tiki_spam_card plugin.
+Demonstrates how to use the tiki_spam_cards plugin.
 
 ## Getting Started
 

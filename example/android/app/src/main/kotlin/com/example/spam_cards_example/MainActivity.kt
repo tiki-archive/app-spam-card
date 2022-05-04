@@ -1,4 +1,4 @@
-package com.example.spam_card_example
+package com.example.spam_cards_example
 
 import io.flutter.embedding.android.FlutterActivity
 
