@@ -1,3 +1,7 @@
+## 0.0.7
+
+* bump tiki_style version
+
 ## 0.0.6
 
 * code refactor to use slices 
