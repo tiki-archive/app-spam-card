@@ -244,7 +244,7 @@ packages:
       name: tiki_decision
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.6"
+    version: "0.0.7"
   tiki_kv:
     dependency: transitive
     description:
@@ -265,7 +265,7 @@ packages:
       name: tiki_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.10"
+    version: "0.0.14"
   typed_data:
     dependency: transitive
     description:

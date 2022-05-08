@@ -12,8 +12,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  tiki_decision: ^0.0.6
-  tiki_style: ^0.0.10
+  tiki_decision: ^0.0.7
+  tiki_style: ^0.0.14
   url_launcher: ^6.1.0
 
 dev_dependencies:
