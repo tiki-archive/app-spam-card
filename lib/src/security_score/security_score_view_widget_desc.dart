@@ -28,29 +28,29 @@ class SecurityScoreViewWidgetDesc extends StatelessWidget {
               child: Text(_empty,
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      color: const Color(0xFFC73000),
+                      color: ColorProvider.tikiRed,
                       fontFamily: TextProvider.familyNunitoSans,
-                      package: 'tiki_style',
-                      fontSize: SizeProvider.instance.text(11.5),
+                      package: TextProvider.package,
+                      fontSize: SizeProvider.instance.text(14),
                       fontWeight: FontWeight.w600))),
         RichText(
             textAlign: TextAlign.left,
             text: TextSpan(
                 text: _text1,
                 style: TextStyle(
-                    color: const Color(0xFF00133F),
+                    color: ColorProvider.tikiBlue,
                     fontFamily: TextProvider.familyNunitoSans,
-                    package: 'tiki_style',
-                    fontSize: SizeProvider.instance.text(11.5),
+                    package: TextProvider.package,
+                    fontSize: SizeProvider.instance.text(14),
                     fontWeight: FontWeight.w600),
                 children: [
                   TextSpan(
                       text: _text2,
                       style: TextStyle(
-                          color: const Color(0xFF00133F),
+                          color: ColorProvider.tikiBlue,
                           fontFamily: TextProvider.familyNunitoSans,
-                          package: 'tiki_style',
-                          fontSize: SizeProvider.instance.text(11.5),
+                          package: TextProvider.package,
+                          fontSize: SizeProvider.instance.text(14),
                           fontWeight: FontWeight.w800))
                 ])),
       ],

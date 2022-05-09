@@ -28,14 +28,14 @@ class CardViewWidgetCompany extends StatelessWidget {
 
   Widget _getAvatar(String? logo, String? name, String? email) {
     return Container(
-        height: SizeProvider.instance.size(9),
-        width: SizeProvider.instance.size(9),
+        height: SizeProvider.instance.width(70),
+        width: SizeProvider.instance.width(70),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
           border: Border.all(
-              color: const Color(0xFFD8D8D8),
-              width: SizeProvider.instance.text(4.5)),
-          color: Colors.white,
+              color: ColorProvider.greyThree,
+              width: SizeProvider.instance.width(4.5)),
+          color: ColorProvider.white,
           boxShadow: const [
             BoxShadow(
                 color: Color(0x26000000),
@@ -57,17 +57,17 @@ class CardViewWidgetCompany extends StatelessWidget {
     String title = name ?? email ?? "";
     return Stack(children: [
       SizedBox(
-          width: SizeProvider.instance.size(9),
-          height: SizeProvider.instance.size(9),
+          width: SizeProvider.instance.width(70),
+          height: SizeProvider.instance.width(70),
           child: ImgProvider.companyAvatar),
       Center(
         child: Text(title[0].toUpperCase(),
             style: TextStyle(
-                color: const Color(0xFF00133F),
+                color: ColorProvider.tikiBlue,
                 fontSize: SizeProvider.instance.text(30),
                 fontWeight: FontWeight.bold,
                 fontFamily: TextProvider.familyNunitoSans,
-                package: 'tiki_style')),
+                package: TextProvider.package)),
       )
     ]);
   }
@@ -78,10 +78,10 @@ class CardViewWidgetCompany extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
           style: TextStyle(
-              fontSize: SizeProvider.instance.text(20),
+              fontSize: SizeProvider.instance.text(24),
               fontWeight: FontWeight.w800,
               fontFamily: TextProvider.familyNunitoSans,
-              package: 'tiki_style'));
+              package: TextProvider.package));
     } else {
       return Text(email,
           overflow: TextOverflow.ellipsis,
@@ -90,7 +90,7 @@ class CardViewWidgetCompany extends StatelessWidget {
               fontSize: SizeProvider.instance.text(15),
               fontWeight: FontWeight.w800,
               fontFamily: TextProvider.familyNunitoSans,
-              package: 'tiki_style'));
+              package: TextProvider.package));
     }
   }
 }

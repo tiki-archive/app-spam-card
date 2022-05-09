@@ -15,24 +15,25 @@ class SecurityScoreViewWidgetButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-        primary: Colors.white,
-        backgroundColor: const Color(0xFFFF521C),
-        padding: EdgeInsets.symmetric(vertical: SizeProvider.instance.size(14)),
+        primary: ColorProvider.white,
+        backgroundColor: ColorProvider.orange,
+        padding:
+            EdgeInsets.symmetric(vertical: SizeProvider.instance.height(14)),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
-                Radius.circular(SizeProvider.instance.size(10)))),
+                Radius.circular(SizeProvider.instance.width(10)))),
       ),
       child: Container(
           alignment: Alignment.center,
           width: double.infinity,
-          height: SizeProvider.instance.text(26),
+          height: SizeProvider.instance.height(26),
           child: Text(_text,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: SizeProvider.instance.text(13),
+                fontSize: SizeProvider.instance.text(16),
                 fontWeight: FontWeight.bold,
                 fontFamily: TextProvider.familyNunitoSans,
-                package: 'tiki_style',
+                package: TextProvider.package,
               ))),
       onPressed: () => Navigator.of(context).pop(),
     );

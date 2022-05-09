@@ -24,7 +24,7 @@ class CardViewWidgetSecurity extends StatelessWidget {
     return Column(children: [
       Row(mainAxisAlignment: MainAxisAlignment.center, children: _getStars()),
       Padding(
-        padding: EdgeInsets.only(top: SizeProvider.instance.size(4)),
+        padding: EdgeInsets.only(top: SizeProvider.instance.height(13)),
       ),
       security != null
           ? RichText(
@@ -32,9 +32,9 @@ class CardViewWidgetSecurity extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontFamily: TextProvider.familyKoara,
-                      package: 'tiki_style',
-                      color: const Color(0xFF8D8D8D),
-                      fontSize: SizeProvider.instance.text(15)),
+                      package: TextProvider.package,
+                      color: ColorProvider.greyFive,
+                      fontSize: SizeProvider.instance.text(18)),
                   text: "Your data is ",
                   children: [
                     TextSpan(
@@ -48,9 +48,9 @@ class CardViewWidgetSecurity extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontFamily: TextProvider.familyKoara,
-                      package: 'tiki_style',
-                      color: const Color(0xFF8D8D8D),
-                      fontSize: SizeProvider.instance.text(15)),
+                      package: TextProvider.package,
+                      color: ColorProvider.greyFive,
+                      fontSize: SizeProvider.instance.text(18)),
                   text: "No data score info yet",
                   children: [_getInfoIcon(context)]),
             ),
@@ -64,32 +64,32 @@ class CardViewWidgetSecurity extends StatelessWidget {
     for (int i = 0; i < 5; i++) {
       if (i >= starRate.floor() && i < starRate.ceil()) {
         stars.add(Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: SizeProvider.instance.size(4)),
+            padding: EdgeInsets.symmetric(
+                horizontal: SizeProvider.instance.height(4)),
             child: Stack(children: [
               Icon(IconProvider.star,
-                  size: SizeProvider.instance.size(20),
+                  size: SizeProvider.instance.text(21),
                   color: ColorProvider.greyThree),
               ClipRect(
                   child: Align(
                       alignment: Alignment.centerLeft,
                       widthFactor: 0.5,
                       child: Icon(IconProvider.star,
-                          size: SizeProvider.instance.size(20), color: color))),
+                          size: SizeProvider.instance.text(21), color: color))),
             ])));
       } else if (i >= starRate.ceil()) {
         stars.add(Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: SizeProvider.instance.size(2)),
+            padding: EdgeInsets.symmetric(
+                horizontal: SizeProvider.instance.width(2)),
             child: Icon(IconProvider.star,
-                size: SizeProvider.instance.size(20),
-                color: ColorProvider.greyFour)));
+                size: SizeProvider.instance.text(21),
+                color: ColorProvider.greyThree)));
       } else {
         stars.add(Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: SizeProvider.instance.size(2)),
+            padding: EdgeInsets.symmetric(
+                horizontal: SizeProvider.instance.width(2)),
             child: Icon(IconProvider.star,
-                size: SizeProvider.instance.size(20), color: color)));
+                size: SizeProvider.instance.text(21), color: color)));
       }
     }
     return stars;
@@ -97,13 +97,13 @@ class CardViewWidgetSecurity extends StatelessWidget {
 
   Color _getColor() {
     if (security == null) {
-      return ColorProvider.greyFour;
+      return ColorProvider.greyThree;
     } else {
       var starRate = security ?? 0;
       if (starRate < 2) {
-        return ColorProvider.red;
+        return ColorProvider.tikiRed;
       } else if (starRate < 4) {
-        return ColorProvider.yellow;
+        return ColorProvider.tikiOrange;
       } else {
         return ColorProvider.green;
       }
@@ -113,14 +113,14 @@ class CardViewWidgetSecurity extends StatelessWidget {
   Color _getColorForText() {
     var starRates = security ?? 0;
     if (security == null) {
-      return const Color(0xFF797979);
+      return ColorProvider.greySix;
     } else {
       if (starRates < 2) {
-        return const Color(0xFFC73000);
+        return ColorProvider.tikiRed;
       } else if (starRates < 4) {
-        return const Color(0xFFE89933);
+        return ColorProvider.tikiOrange;
       } else {
-        return const Color(0xFF00B272);
+        return ColorProvider.green;
       }
     }
   }
@@ -138,14 +138,12 @@ class CardViewWidgetSecurity extends StatelessWidget {
   _getInfoIcon(BuildContext context) {
     return WidgetSpan(
         child: Padding(
-            padding: EdgeInsets.only(
-              left: SizeProvider.instance.size(13),
-            ),
+            padding: EdgeInsets.only(left: SizeProvider.instance.width(7)),
             child: GestureDetector(
                 child: Icon(
                   Icons.info_outline_rounded,
-                  color: const Color(0xFF8D8D8D),
-                  size: SizeProvider.instance.text(17),
+                  color: ColorProvider.greyFive,
+                  size: SizeProvider.instance.text(20),
                 ),
                 onTap: () => controller.openSecurityScore(context))));
   }

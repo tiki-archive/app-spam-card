@@ -25,7 +25,7 @@ class CardViewWidgetInfo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-              width: SizeProvider.instance.size(150),
+              width: SizeProvider.instance.width(150),
               child: CardViewWidgetSent(
                 totalEmails,
                 sinceYear,
@@ -33,7 +33,7 @@ class CardViewWidgetInfo extends StatelessWidget {
           Container(
               width: 1,
               height: SizeProvider.instance.size(120),
-              color: const Color(0xFFD8D8D8)),
+              color: ColorProvider.greyThree),
           SizedBox(
               width: SizeProvider.instance.size(150),
               child: CardViewWidgetOpened(opened))

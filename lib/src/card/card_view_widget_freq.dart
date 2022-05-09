@@ -20,18 +20,20 @@ class CardViewWidgetFreq extends StatelessWidget {
       children: [
         Text("They send you emails",
             style: TextStyle(
-                fontSize: SizeProvider.instance.size(9),
+                fontFamily: TextProvider.familyNunitoSans,
+                package: TextProvider.package,
+                fontSize: SizeProvider.instance.text(12),
                 fontWeight: FontWeight.w600,
-                color: const Color(0xFF00133F))),
-        Padding(padding: EdgeInsets.only(top: SizeProvider.instance.size(6))),
+                color: ColorProvider.tikiBlue)),
+        Padding(padding: EdgeInsets.only(top: SizeProvider.instance.height(6))),
         Text('${frequency[0].toUpperCase()}${frequency.substring(1)}',
             style: TextStyle(
                 fontFamily: TextProvider.familyKoara,
-                package: 'tiki_style',
-                fontSize: SizeProvider.instance.text(26),
+                package: TextProvider.package,
+                fontSize: SizeProvider.instance.text(32),
                 fontWeight: FontWeight.w800,
                 color: _getTextColor(frequency))),
-        Padding(padding: EdgeInsets.only(top: SizeProvider.instance.size(6))),
+        Padding(padding: EdgeInsets.only(top: SizeProvider.instance.height(6))),
         _getCategory(category)
       ],
     );
@@ -40,11 +42,11 @@ class CardViewWidgetFreq extends StatelessWidget {
   _getTextColor(String frequency) {
     switch (frequency) {
       case "monthly":
-        return const Color(0xFF00B272);
+        return ColorProvider.green;
       case "daily":
-        return const Color(0xFFB5002B);
+        return ColorProvider.tikiRed;
       case "weekly":
-        return const Color(0xFFE89933);
+        return ColorProvider.tikiOrange;
     }
   }
 
@@ -55,36 +57,40 @@ class CardViewWidgetFreq extends StatelessWidget {
         children: [
           Text('in',
               style: TextStyle(
-                  fontSize: SizeProvider.instance.text(10),
+                  fontFamily: TextProvider.familyNunitoSans,
+                  package: TextProvider.package,
+                  fontSize: SizeProvider.instance.text(12),
                   fontWeight: FontWeight.w600,
-                  color: const Color(0xFF00133F))),
+                  color: ColorProvider.tikiBlue)),
           Padding(
-            padding: EdgeInsets.only(left: SizeProvider.instance.text(3)),
+            padding: EdgeInsets.only(left: SizeProvider.instance.width(5)),
           ),
           Container(
               decoration: BoxDecoration(
                   border: Border.all(
-                      color: const Color(0xFF545454),
-                      width: SizeProvider.instance.text(1)),
+                      color: ColorProvider.greySeven,
+                      width: SizeProvider.instance.width(1)),
                   borderRadius: BorderRadius.circular(50)),
               padding: EdgeInsets.symmetric(
-                  vertical: SizeProvider.instance.text(3),
-                  horizontal: SizeProvider.instance.text(8)),
+                  vertical: SizeProvider.instance.height(3),
+                  horizontal: SizeProvider.instance.width(8)),
               child: Row(
                 children: [
                   Icon(
                     Icons.sell,
-                    color: const Color(0xFF545454),
+                    color: ColorProvider.greySeven,
                     size: SizeProvider.instance.text(12),
                   ),
                   Padding(
-                      padding:
-                          EdgeInsets.only(left: SizeProvider.instance.text(4))),
+                      padding: EdgeInsets.only(
+                          left: SizeProvider.instance.width(4))),
                   Text(
                       "${category[0].toUpperCase()}${category.substring(1).toLowerCase()}",
                       style: TextStyle(
-                          fontSize: SizeProvider.instance.text(10),
-                          color: const Color(0xFF545454),
+                          fontFamily: TextProvider.familyNunitoSans,
+                          package: TextProvider.package,
+                          fontSize: SizeProvider.instance.text(12),
+                          color: ColorProvider.greySeven,
                           fontWeight: FontWeight.w800))
                 ],
               ))

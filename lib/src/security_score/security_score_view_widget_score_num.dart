@@ -21,19 +21,23 @@ class SecurityScoreViewWidgetScoreNum extends StatelessWidget {
           ? Text("$score / 10",
               style: TextStyle(
                   color: _getColor(score!),
-                  fontSize: SizeProvider.instance.text(30),
+                  fontFamily: TextProvider.familyNunitoSans,
+                  package: TextProvider.package,
+                  fontSize: SizeProvider.instance.text(36),
                   fontWeight: FontWeight.bold))
           : Text("? / 10",
               style: TextStyle(
-                  color: const Color(0xFFAFAFAF),
-                  fontSize: SizeProvider.instance.text(30),
+                  color: ColorProvider.greyFour,
+                  fontFamily: TextProvider.familyNunitoSans,
+                  package: TextProvider.package,
+                  fontSize: SizeProvider.instance.text(36),
                   fontWeight: FontWeight.bold)),
       Text(label,
           style: TextStyle(
-              color: const Color(0xFF797979),
-              fontSize: SizeProvider.instance.text(11.5),
+              color: ColorProvider.greySix,
+              fontSize: SizeProvider.instance.text(14),
               fontFamily: TextProvider.familyNunitoSans,
-              package: 'tiki_style',
+              package: TextProvider.package,
               fontWeight: FontWeight.bold))
     ]);
   }

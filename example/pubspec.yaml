@@ -25,6 +25,11 @@ dependencies:
     # The example app is bundled with the plugin so we use a path dependency on
     # the parent directory to use the current plugin's version.
     path: ../
+  tiki_kv: ^0.1.0
+  uuid: ^3.0.5
+  tiki_style: ^0.0.17
+  tiki_decision: ^0.0.8
+  sqflite_sqlcipher: ^2.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

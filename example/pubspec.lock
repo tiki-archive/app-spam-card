@@ -190,7 +190,7 @@ packages:
     source: hosted
     version: "2.2.1+1"
   sqflite_sqlcipher:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: sqflite_sqlcipher
       url: "https://pub.dartlang.org"
@@ -239,14 +239,14 @@ packages:
     source: hosted
     version: "0.4.8"
   tiki_decision:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: tiki_decision
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.7"
+    version: "0.0.8"
   tiki_kv:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: tiki_kv
       url: "https://pub.dartlang.org"
@@ -258,14 +258,14 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.6"
+    version: "0.0.7"
   tiki_style:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: tiki_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.14"
+    version: "0.0.17"
   typed_data:
     dependency: transitive
     description:
@@ -330,7 +330,7 @@ packages:
     source: hosted
     version: "3.0.0"
   uuid:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: uuid
       url: "https://pub.dartlang.org"

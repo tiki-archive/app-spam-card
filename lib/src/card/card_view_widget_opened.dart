@@ -17,14 +17,15 @@ class CardViewWidgetOpened extends StatelessWidget {
       Text("You've opened",
           style: TextStyle(
               fontFamily: TextProvider.familyNunitoSans,
-              package: 'tiki_style',
+              package: TextProvider.package,
               fontWeight: FontWeight.w600,
-              fontSize: SizeProvider.instance.text(10),
-              color: const Color(0xFF00133F))),
+              fontSize: SizeProvider.instance.text(12),
+              color: ColorProvider.tikiBlue)),
       Container(
-          margin: EdgeInsets.symmetric(vertical: SizeProvider.instance.size(8)),
-          height: SizeProvider.instance.size(6),
-          width: SizeProvider.instance.size(6),
+          margin:
+              EdgeInsets.symmetric(vertical: SizeProvider.instance.height(12)),
+          height: SizeProvider.instance.width(72.5),
+          width: SizeProvider.instance.width(72.5),
           child: Stack(children: [
             Center(
                 child: RichText(
@@ -34,8 +35,8 @@ class CardViewWidgetOpened extends StatelessWidget {
                         style: TextStyle(
                             color: _getProgressColor(percent! * 100),
                             fontFamily: TextProvider.familyKoara,
-                            package: 'tiki_style',
-                            fontSize: SizeProvider.instance.text(19),
+                            package: TextProvider.package,
+                            fontSize: SizeProvider.instance.text(32),
                             fontWeight: FontWeight.bold),
                         children: [
                   TextSpan(
@@ -46,16 +47,16 @@ class CardViewWidgetOpened extends StatelessWidget {
                     text: "%",
                     style: TextStyle(
                         fontFamily: TextProvider.familyNunitoSans,
-                        package: 'tiki_style',
-                        fontSize: SizeProvider.instance.text(11.5),
+                        package: TextProvider.package,
+                        fontSize: SizeProvider.instance.text(14),
                         fontWeight: FontWeight.w800),
                   )
                 ]))),
             SizedBox(
-              height: SizeProvider.instance.size(6),
-              width: SizeProvider.instance.size(6),
+              height: SizeProvider.instance.width(72.5),
+              width: SizeProvider.instance.width(72.5),
               child: CircularProgressIndicator(
-                  strokeWidth: SizeProvider.instance.size(1),
+                  strokeWidth: SizeProvider.instance.width(8),
                   backgroundColor: const Color(0xFFC4C4C4),
                   value: percent,
                   color: _getProgressColor(percent! * 100)),
@@ -64,18 +65,18 @@ class CardViewWidgetOpened extends StatelessWidget {
       Text("of their emails",
           style: TextStyle(
               fontFamily: TextProvider.familyNunitoSans,
-              package: 'tiki_style',
+              package: TextProvider.package,
               fontWeight: FontWeight.w600,
-              fontSize: SizeProvider.instance.text(10),
-              color: const Color(0xFF00133F)))
+              fontSize: SizeProvider.instance.text(12),
+              color: ColorProvider.tikiBlue))
     ]);
   }
 
   _getProgressColor(percent) {
     if (percent <= 50) {
-      return const Color(0xFFE89933);
+      return ColorProvider.tikiOrange;
     } else {
-      return const Color(0xFF00B272);
+      return ColorProvider.green;
     }
   }
 }

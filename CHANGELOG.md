@@ -1,3 +1,9 @@
+## 0.0.8
+
+* fixed UI bugs
+* converted to tiki_style
+* fixed bugs throwing rendering errors
+
 ## 0.0.7
 
 * bump tiki_style version

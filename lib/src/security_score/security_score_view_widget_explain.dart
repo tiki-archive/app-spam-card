@@ -25,14 +25,14 @@ class SecurityScoreViewWidgetExplain extends StatelessWidget {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       _label(_labelSensitivity),
       Container(
-          margin: EdgeInsets.only(top: SizeProvider.instance.size(4)),
+          margin: EdgeInsets.only(top: SizeProvider.instance.height(4)),
           child: _text(
               text: _textSensitivity, link: _linkSensitivity, close: '.')),
       Container(
-          margin: EdgeInsets.only(top: SizeProvider.instance.size(8)),
+          margin: EdgeInsets.only(top: SizeProvider.instance.height(22)),
           child: _label(_labelHacking)),
       Container(
-          margin: EdgeInsets.only(top: SizeProvider.instance.size(4)),
+          margin: EdgeInsets.only(top: SizeProvider.instance.height(4)),
           child: _text(text: _textHacking, link: _linkHacking, close: ')')),
     ]);
   }
@@ -41,7 +41,10 @@ class SecurityScoreViewWidgetExplain extends StatelessWidget {
     return Text(label,
         textAlign: TextAlign.left,
         style: const TextStyle(
-            color: Color(0xFF797979), fontWeight: FontWeight.bold));
+            fontFamily: TextProvider.familyNunitoSans,
+            package: TextProvider.package,
+            color: ColorProvider.greySix,
+            fontWeight: FontWeight.bold));
   }
 
   Widget _text(
@@ -50,10 +53,10 @@ class SecurityScoreViewWidgetExplain extends StatelessWidget {
         text: TextSpan(
             text: text,
             style: TextStyle(
-                color: const Color(0xFF00133F),
+                color: ColorProvider.tikiBlue,
                 fontFamily: TextProvider.familyNunitoSans,
-                package: 'tiki_style',
-                fontSize: SizeProvider.instance.text(11.5),
+                package: TextProvider.package,
+                fontSize: SizeProvider.instance.text(14),
                 fontWeight: FontWeight.w600),
             children: [
           TextSpan(
@@ -61,18 +64,18 @@ class SecurityScoreViewWidgetExplain extends StatelessWidget {
               recognizer: TapGestureRecognizer()
                 ..onTap = () async => _launchURL('https://' + link),
               style: TextStyle(
-                  color: const Color(0xFFFF521C),
+                  color: ColorProvider.orange,
                   fontFamily: TextProvider.familyNunitoSans,
-                  package: 'tiki_style',
-                  fontSize: SizeProvider.instance.text(11.5),
+                  package: TextProvider.package,
+                  fontSize: SizeProvider.instance.text(14),
                   fontWeight: FontWeight.w600)),
           TextSpan(
               text: close,
               style: TextStyle(
-                  color: const Color(0xFF00133F),
+                  color: ColorProvider.tikiBlue,
                   fontFamily: TextProvider.familyNunitoSans,
-                  package: 'tiki_style',
-                  fontSize: SizeProvider.instance.text(11.5),
+                  package: TextProvider.package,
+                  fontSize: SizeProvider.instance.text(14),
                   fontWeight: FontWeight.w600))
         ]));
   }
