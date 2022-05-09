@@ -1,6 +1,6 @@
 name: tiki_spam_cards
 description: Spam Cards SDK for Tiki.
-version: 0.0.8
+version: 0.0.9
 homepage: https://mytiki.com
 repository: https://github.com/tiki/spam_card
 issue_tracker: https://github.com/tiki/spam_card/issues
