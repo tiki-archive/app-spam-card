@@ -19,26 +19,26 @@ class CardViewWidgetHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: EdgeInsets.only(
-            left: SizeProvider.instance.size(24),
-            right: SizeProvider.instance.size(24),
-            top: SizeProvider.instance.size(8)),
+            left: SizeProvider.instance.width(24),
+            right: SizeProvider.instance.width(24),
+            top: SizeProvider.instance.height(8)),
         child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
           Expanded(
               child: Row(children: [
-            SizedBox(
-                child: FittedBox(
-                    fit: BoxFit.fill,
-                    child: ImgProvider.getByName("${provider}_round_logo.png")),
-                width: SizeProvider.instance.size(20)),
+            Image(
+                image: _fromProvider(provider).image,
+                width: SizeProvider.instance.width(19)),
             Padding(
-                padding: EdgeInsets.only(right: SizeProvider.instance.size(7))),
-            Text("Your $provider account",
+                padding:
+                    EdgeInsets.only(right: SizeProvider.instance.width(7))),
+            Text(
+                'Your ${provider[0].toUpperCase()}${provider.substring(1).toLowerCase()} account',
                 style: TextStyle(
                   fontFamily: TextProvider.familyNunitoSans,
-                  package: 'tiki_style',
-                  fontSize: SizeProvider.instance.text(12),
+                  package: TextProvider.package,
+                  fontSize: SizeProvider.instance.text(14),
                   fontWeight: FontWeight.bold,
-                  color: const Color(0xFF797979),
+                  color: ColorProvider.greySix,
                 ))
           ])),
           Opacity(
@@ -46,11 +46,22 @@ class CardViewWidgetHeader extends StatelessWidget {
               child: GestureDetector(
                   onTap: () => _share(context, shareKey, shareMessage),
                   child: Icon(Icons.share,
-                      color: const Color(0xFFFF521C),
-                      size: SizeProvider.instance.size(24))))
+                      color: ColorProvider.orange,
+                      size: SizeProvider.instance.height(26))))
         ]));
   }
 
   _share(BuildContext context, GlobalKey<State<StatefulWidget>> shareKey,
       String shareMessage) {}
+
+  Image _fromProvider(String provider) {
+    switch (provider.toLowerCase()) {
+      case 'google':
+        return ImgProvider.googleGmailRound;
+      case 'microsoft':
+        return ImgProvider.microsoftWindowsRound;
+      default:
+        return ImgProvider.googleGmailRound;
+    }
+  }
 }

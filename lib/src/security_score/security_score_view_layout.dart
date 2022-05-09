@@ -4,9 +4,9 @@
  */
 
 import 'package:flutter/material.dart';
-import 'security_score_model.dart';
 import 'package:tiki_style/tiki_style.dart';
 
+import 'security_score_model.dart';
 import 'security_score_view_widget_button.dart';
 import 'security_score_view_widget_desc.dart';
 import 'security_score_view_widget_explain.dart';
@@ -24,60 +24,62 @@ class SecurityScoreViewLayout extends StatelessWidget {
     return GestureDetector(
         child: SafeArea(
             child: Container(
-                height: MediaQuery.of(context).size.height * 0.85,
+                height: MediaQuery.of(context).size.height * 0.76,
                 margin: EdgeInsets.symmetric(
-                    horizontal: SizeProvider.instance.size(20)),
+                    horizontal: SizeProvider.instance.width(20)),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
                           margin: EdgeInsets.only(
-                              top: SizeProvider.instance.size(20)),
+                              top: SizeProvider.instance.height(19)),
                           child: Center(
                               child: Container(
-                                  height: SizeProvider.instance.size(4),
-                                  width: SizeProvider.instance.size(62),
+                                  height: SizeProvider.instance.height(4),
+                                  width: SizeProvider.instance.width(56),
                                   alignment: Alignment.center,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(
-                                              SizeProvider.instance.size(8))),
-                                      color: const Color(0xFFD8D8D8))))),
+                                              SizeProvider.instance.width(8))),
+                                      color: ColorProvider.greyThree)))),
                       Container(
                           margin: EdgeInsets.only(
-                              top: SizeProvider.instance.size(4)),
+                              top: SizeProvider.instance.height(47)),
                           alignment: Alignment.center,
                           child: Text(
                             _title,
                             style: TextStyle(
-                                color: const Color(0xFF00133F),
-                                fontSize: SizeProvider.instance.text(15),
+                                fontFamily: TextProvider.familyNunitoSans,
+                                package: TextProvider.package,
+                                color: ColorProvider.tikiBlue,
+                                fontSize: SizeProvider.instance.text(18),
                                 fontWeight: FontWeight.w800),
                             textAlign: TextAlign.center,
                           )),
                       Container(
                           margin: EdgeInsets.only(
-                              top: SizeProvider.instance.size(25)),
+                              top: SizeProvider.instance.height(27)),
                           alignment: Alignment.topLeft,
                           child: SecurityScoreViewWidgetDesc(
                               noScore: model.security == null)),
                       Container(
                           margin: EdgeInsets.only(
-                              top: SizeProvider.instance.size(25)),
+                              top: SizeProvider.instance.height(25)),
                           child: SecurityScoreViewWidgetScore(
                               security: model.security,
                               hacking: model.hacking,
                               sensitivity: model.sensitivity)),
                       Container(
                           margin: EdgeInsets.only(
-                              top: SizeProvider.instance.size(25)),
+                              top: SizeProvider.instance.height(25)),
                           child: const SecurityScoreViewWidgetExplain()),
                       Expanded(
                           child: Container(
                               alignment: Alignment.bottomCenter,
                               margin: EdgeInsets.only(
-                                  bottom: SizeProvider.instance.size(25)),
+                                  bottom: SizeProvider.instance.height(25)),
                               child: const SecurityScoreViewWidgetButton()))
                     ]))));
   }

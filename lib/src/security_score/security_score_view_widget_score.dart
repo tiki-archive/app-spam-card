@@ -25,10 +25,10 @@ class SecurityScoreViewWidgetScore extends StatelessWidget {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Text(_leadIn,
           style: TextStyle(
-              color: const Color(0xFF00133F),
+              color: ColorProvider.tikiBlue,
               fontFamily: TextProvider.familyNunitoSans,
-              package: 'tiki_style',
-              fontSize: SizeProvider.instance.text(11.5),
+              package: TextProvider.package,
+              fontSize: SizeProvider.instance.text(14),
               fontWeight: FontWeight.w600)),
       if (security != null)
         Container(
@@ -44,7 +44,7 @@ class SecurityScoreViewWidgetScore extends StatelessWidget {
                   Container(
                     width: 1,
                     height: SizeProvider.instance.size(65),
-                    color: const Color(0xFFAFAFAF),
+                    color: ColorProvider.greyFour,
                   ),
                   SecurityScoreViewWidgetScoreNum(
                     score: hacking,

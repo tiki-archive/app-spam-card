@@ -19,33 +19,39 @@ class CardViewWidgetSent extends StatelessWidget {
       children: [
         Text("They've sent you",
             style: TextStyle(
+                fontFamily: TextProvider.familyNunitoSans,
+                package: TextProvider.package,
                 fontWeight: FontWeight.w600,
-                color: const Color(0xFF00133F),
-                fontSize: SizeProvider.instance.text(10))),
+                color: ColorProvider.tikiBlue,
+                fontSize: SizeProvider.instance.text(12))),
         Padding(
-            padding: EdgeInsets.only(bottom: SizeProvider.instance.size(2))),
+            padding: EdgeInsets.only(bottom: SizeProvider.instance.height(12))),
         Text(
           totalEmails.toString(),
           style: TextStyle(
+              color: ColorProvider.tikiBlue,
               fontFamily: TextProvider.familyKoara,
-              package: 'tiki_style',
-              fontSize: SizeProvider.instance.text(45),
+              package: TextProvider.package,
+              fontSize: SizeProvider.instance.text(50),
               fontWeight: FontWeight.bold),
         ),
         Text(totalEmails != null && totalEmails! > 1 ? "emails" : "email",
             style: TextStyle(
                 height: 0.5,
+                fontFamily: TextProvider.familyNunitoSans,
+                package: TextProvider.package,
                 fontWeight: FontWeight.w800,
-                fontSize: SizeProvider.instance.text(10))),
+                color: ColorProvider.tikiBlue,
+                fontSize: SizeProvider.instance.text(12))),
         Padding(
-            padding: EdgeInsets.only(bottom: SizeProvider.instance.size(14))),
+            padding: EdgeInsets.only(bottom: SizeProvider.instance.height(20))),
         ClipRRect(
-            borderRadius: BorderRadius.circular(SizeProvider.instance.size(5)),
+            borderRadius: BorderRadius.circular(SizeProvider.instance.width(6)),
             child: Container(
                 padding: EdgeInsets.symmetric(
-                    vertical: SizeProvider.instance.size(8),
-                    horizontal: SizeProvider.instance.size(7)),
-                color: const Color(0xFF00133F),
+                    vertical: SizeProvider.instance.height(3),
+                    horizontal: SizeProvider.instance.width(8)),
+                color: ColorProvider.tikiBlue,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
@@ -54,14 +60,16 @@ class CardViewWidgetSent extends StatelessWidget {
                     Padding(
                         child: Icon(Icons.calendar_today,
                             color: Colors.white,
-                            size: SizeProvider.instance.text(9)),
+                            size: SizeProvider.instance.text(10)),
                         padding: EdgeInsets.only(
-                            right: SizeProvider.instance.size(15))),
+                            right: SizeProvider.instance.width(4))),
                     Text(
                       " since ${sinceYear.toString()}",
                       style: TextStyle(
+                          fontFamily: TextProvider.familyNunitoSans,
+                          package: TextProvider.package,
                           color: Colors.white,
-                          fontSize: SizeProvider.instance.text(10),
+                          fontSize: SizeProvider.instance.text(12),
                           fontWeight: FontWeight.w800),
                     )
                   ],
