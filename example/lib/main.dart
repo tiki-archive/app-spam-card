@@ -17,6 +17,7 @@ void main() async {
   spamCards.upsert({
     CardModel(
         strategy: 'google',
+        senderEmail: 'google.com',
         companyName: 'Company Name',
         frequency: 'daily',
         category: 'Promotions',
@@ -25,7 +26,13 @@ void main() async {
         openRate: 0.5,
         securityScore: 0.5,
         hackingScore: 0.5,
-        sensitivityScore: 0.5)
+        sensitivityScore: 0.5,
+        onUnsubscribe: () async {
+          print('unsubscribed');
+        },
+        onKeep: () async {
+          print('keep');
+        })
   });
 
   runApp(MaterialApp(
@@ -47,4 +54,9 @@ class Widgety extends StatelessWidget {
     TikiStyle style = TikiStyle.init(context);
     return decision.widget;
   }
+}
+
+Future<void> onUnsubscribe() async {
+  await Future.delayed(Duration(seconds: 30));
+  print('unsubscribed');
 }

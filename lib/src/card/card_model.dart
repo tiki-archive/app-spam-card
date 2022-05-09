@@ -16,8 +16,8 @@ class CardModel {
   double? hackingScore;
   String? senderEmail;
   String strategy;
-  Function? onUnsubscribe;
-  Function? onKeep;
+  Future<void> Function()? onUnsubscribe;
+  Future<void> Function()? onKeep;
 
   CardModel(
       {required this.strategy,
