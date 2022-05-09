@@ -28,7 +28,7 @@ dependencies:
   tiki_kv: ^0.1.0
   uuid: ^3.0.5
   tiki_style: ^0.0.17
-  tiki_decision: ^0.0.8
+  tiki_decision: ^0.0.10
   sqflite_sqlcipher: ^2.1.0
 
   # The following adds the Cupertino Icons font to your application.
