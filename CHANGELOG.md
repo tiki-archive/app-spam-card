@@ -1,3 +1,7 @@
+## 0.0.9
+
+* hard typed callbacks
+
 ## 0.0.8
 
 * fixed UI bugs
