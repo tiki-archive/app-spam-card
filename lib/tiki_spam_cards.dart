@@ -57,4 +57,8 @@ class TikiSpamCards {
     }
     return opened / total;
   }
+
+  void clearDecision(){
+    _decision.clear();
+  }
 }
