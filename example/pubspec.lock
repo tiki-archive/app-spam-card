@@ -241,10 +241,10 @@ packages:
   tiki_decision:
     dependency: "direct main"
     description:
-      path: "../../decision"
-      relative: true
-    source: path
-    version: "0.0.9"
+      name: tiki_decision
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.11"
   tiki_kv:
     dependency: "direct main"
     description:
@@ -258,14 +258,14 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.8"
+    version: "0.0.9"
   tiki_style:
     dependency: "direct main"
     description:
       name: tiki_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.17"
+    version: "0.0.19"
   typed_data:
     dependency: transitive
     description:

@@ -35,7 +35,7 @@ class CardViewLayout extends StatelessWidget {
                   padding: EdgeInsets.only(
                       left: SizeProvider.instance.width(12),
                       right: SizeProvider.instance.width(12),
-                      top: SizeProvider.instance.height(16)),
+                      top: SizeProvider.instance.height(8)),
                   child: CardViewWidgetCompany(
                     logo: service.model.logoUrl,
                     name: service.model.companyName,
@@ -44,10 +44,10 @@ class CardViewLayout extends StatelessWidget {
               Expanded(
                   child: Container(
                       margin: EdgeInsets.only(
-                          left: SizeProvider.instance.width(18),
+                          left: SizeProvider.instance.width(8),
                           right: SizeProvider.instance.width(18),
-                          top: SizeProvider.instance.height(16),
-                          bottom: SizeProvider.instance.height(20)),
+                          top: SizeProvider.instance.height(8),
+                          bottom: SizeProvider.instance.height(12)),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
                               SizeProvider.instance.width(16)),
@@ -58,28 +58,25 @@ class CardViewLayout extends StatelessWidget {
                           children: [
                             Padding(
                                 padding: EdgeInsets.only(
-                                    top: SizeProvider.instance.height(24)),
+                                    top: SizeProvider.instance.height(8)),
                                 child: CardViewWidgetFreq(
                                   service.model.frequency.toString(),
                                   service.model.category.toString(),
                                 )),
                             Padding(
                                 padding: EdgeInsets.only(
-                                    top: SizeProvider.instance.height(16),
+                                    top: SizeProvider.instance.height(8),
                                     left: SizeProvider.instance.width(25),
                                     right: SizeProvider.instance.width(25)),
                                 child: const CardViewWidgetDivider()),
-                            Padding(
-                                padding: EdgeInsets.only(
-                                    top: SizeProvider.instance.height(8)),
-                                child: CardViewWidgetInfo(
+                            CardViewWidgetInfo(
                                   service.model.sinceYear,
                                   service.model.totalEmails,
                                   service.model.openRate,
-                                )),
+                                ),
                             Padding(
                                 padding: EdgeInsets.only(
-                                    top: SizeProvider.instance.height(36)),
+                                    top: SizeProvider.instance.height(8)),
                                 child: CardViewWidgetSecurity(
                                     service.controller,
                                     security: service.model.securityScore,

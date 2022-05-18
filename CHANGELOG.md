@@ -1,3 +1,7 @@
+## 0.0.10
+
+* add sender email address to card
+
 ## 0.0.9
 
 * hard typed callbacks
