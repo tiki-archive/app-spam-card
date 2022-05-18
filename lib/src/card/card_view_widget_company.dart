@@ -20,8 +20,8 @@ class CardViewWidgetCompany extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         _getAvatar(logo, name, email),
-        Padding(padding: EdgeInsets.only(top: SizeProvider.instance.size(9))),
-        _getCompanyName(name, email)
+        _getCompanyName(name, email),
+        Text(email ?? '')
       ],
     );
   }

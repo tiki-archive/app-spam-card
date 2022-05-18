@@ -21,7 +21,8 @@ class CardViewWidgetSecurity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
+    return Column(mainAxisSize: MainAxisSize.min,
+        children: [
       Row(mainAxisAlignment: MainAxisAlignment.center, children: _getStars()),
       Padding(
         padding: EdgeInsets.only(top: SizeProvider.instance.height(13)),
